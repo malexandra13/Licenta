@@ -3,7 +3,9 @@ package com.example.licenta;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         auth=FirebaseAuth.getInstance();
         button=findViewById(R.id.logout);
-        textView=findViewById(R.id.user_details);
         user=auth.getCurrentUser();
 
         if(user==null){
@@ -46,7 +47,13 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         else{
-            textView.setText(user.getEmail());
+            SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+            String firstName = sharedPreferences.getString("firstName", "");
+            String lastName = sharedPreferences.getString("lastName", "");
+
+            TextView greetingTextView = findViewById(R.id.greetingText);
+            greetingTextView.setText("Hello, " + firstName+" "+lastName+"!");
+
         }
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
 
 
 

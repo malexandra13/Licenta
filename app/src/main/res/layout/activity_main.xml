@@ -9,16 +9,19 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/user_details"
-        android:layout_width="wrap_content"
+        android:id="@+id/greetingText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-    />
-    
+        android:text="@string/greetingText"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
     <Button
         android:id="@+id/logout"
         android:text="@string/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

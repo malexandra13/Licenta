@@ -3,7 +3,9 @@ package com.example.licenta;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -21,11 +23,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
 
-    TextInputEditText editTextEmail,editTextPassword;
+    TextInputEditText editTextEmail,editTextPassword, editTextLastName, editTextFirstName;
     Button buttonRegister;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     TextView textViewLogin;
+
+
 
     @Override
     public void onStart() {
@@ -50,6 +54,8 @@ public class Register extends AppCompatActivity {
         buttonRegister=findViewById(R.id.registerButton);
         progressBar=findViewById(R.id.progressBar);
         textViewLogin=findViewById(R.id.loginNow);
+        editTextLastName=findViewById(R.id.lastName);
+        editTextFirstName=findViewById(R.id.firstName);
 
         textViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +72,17 @@ public class Register extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 String email=String.valueOf(editTextEmail.getText());
                 String password=String.valueOf(editTextPassword.getText());
+                String lastName=String.valueOf(editTextLastName.getText());
+                String firstName=String.valueOf(editTextFirstName.getText());
 
+                if(TextUtils.isEmpty(firstName)){
+                    editTextFirstName.setError("First name is required");
+                    return;
+                }
+                if(TextUtils.isEmpty(lastName)){
+                    editTextLastName.setError("Last name is required");
+                    return;
+                }
                 if(TextUtils.isEmpty(email)){
                     editTextEmail.setError("Email is required");
                     return;
@@ -75,6 +91,19 @@ public class Register extends AppCompatActivity {
                     editTextPassword.setError("Enter password");
                     return;
                 }
+
+                if(password.length()<6){
+                    editTextPassword.setError("Password must be at least 6 characters");
+                    return;
+                }
+
+                SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("firstName", firstName);
+                editor.putString("lastName", lastName);
+                editor.apply();
+
+
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
