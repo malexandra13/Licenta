@@ -62,7 +62,7 @@
 
     <TextView
         android:id="@+id/registerNow"
-        android:text="Click to register"
+        android:text="@string/registerNow"
         android:gravity="center"
         android:textSize="20sp"
         android:layout_marginTop="20dp"

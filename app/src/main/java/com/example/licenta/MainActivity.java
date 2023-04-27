@@ -25,11 +25,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-//    FirebaseFirestore firestore=FirebaseFirestore.getInstance();
-
     FirebaseAuth auth;
     Button button;
-    TextView textView;
     FirebaseUser user;
 
     @Override
@@ -67,26 +64,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-//        Map<String,Object> users=new HashMap<>();
-//        users.put("first","Ada");
-//        users.put("last","Lovelace");
-//        users.put("born",1815);
-//        firestore.collection("users").add(users).
-//                addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//                        Toast.makeText(getApplicationContext(),"Succes",Toast.LENGTH_LONG).show();
-//                    }
-//                }).addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_LONG).show();
-//
-//                    }
-//                });
     }
 }

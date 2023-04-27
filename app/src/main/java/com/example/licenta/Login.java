@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if(currentUser != null && mAuth.getCurrentUser().isEmailVerified() == true){
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -69,12 +69,11 @@ public class Login extends AppCompatActivity {
                 String password = String.valueOf(editTextPassword.getText());
 
                 if (TextUtils.isEmpty(email)) {
-                    //aici a pus Toast.makeText(getApplicationContext(),"Email is required",Toast.LENGTH_LONG).show();
                     editTextEmail.setError("Email is required");
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
-                    //aici a pus Toast.makeText(getApplicationContext(),"Password is required",Toast.LENGTH_LONG).show();
+
                     editTextPassword.setError("Enter password");
                     return;
                 }
@@ -85,11 +84,15 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+                                    if(mAuth.getCurrentUser().isEmailVerified() == false){
+                                        Toast.makeText(getApplicationContext(), "Please verify your email address", Toast.LENGTH_LONG).show();
+                                        return;
+                                    }else{
                                     // Sign in success, update UI with the signed-in user's information
                                     Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
-                                    finish();
+                                    finish();}
 
                                 } else {
                                     // If sign in fails, display a message to the user.
