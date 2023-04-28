@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     Button buttonLogout;
     FirebaseUser user;
-    GoogleSignInOptions googleSignInOptions;
-    GoogleSignInClient googleSignInClient;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
             greetingTextView.setText("Hello, " + firstName + " " + lastName + "!");
         }
 
+
+        GoogleSignInAccount signInAccount=GoogleSignIn.getLastSignedInAccount(this);
+        if(signInAccount!=null){
+            greetingTextView.setText("Hello, " + signInAccount.getDisplayName() + "!");
+
+        }
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,6 +1,7 @@
 package com.example.licenta;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,12 +24,15 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Login extends AppCompatActivity {
 
+    private static final int RC_SIGN_IN = 123;
     TextInputEditText editTextEmail, editTextPassword;
     Button buttonLogin;
     FirebaseAuth mAuth;
@@ -37,9 +41,7 @@ public class Login extends AppCompatActivity {
     CheckBox checkBoxRememberMe;
 
     SignInButton googleButton;
-
-    GoogleSignInOptions googleSignInOptions;
-    GoogleSignInClient googleSignInClient;
+    private GoogleSignInClient googleSignInClient;
 
 
     @Override
@@ -70,6 +72,15 @@ public class Login extends AppCompatActivity {
         //!TO-DO : implement check box "remember me"
         checkBoxRememberMe = findViewById(R.id.checkBoxRememberMe);
 
+
+        createRequest();
+
+        googleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
 
         textViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,5 +133,63 @@ public class Login extends AppCompatActivity {
                         });
             }
         });
+
+
     }
+
+    private void createRequest() {
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id)) //get the default web client id
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
+
+
+    }
+
+    private void signIn() {
+        Intent signInIntent = googleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN); //RC_SIGN_IN is a request code
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+
+            } catch (ApiException e) {
+                Toast.makeText(this, e.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+
+    private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
+        AuthCredential credential = GoogleAuthProvider.
+                getCredential(account.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser currentUser = mAuth.getCurrentUser();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+
+                        } else {
+                            Toast.makeText(Login.this, "Sorry auth failed.",
+                                    Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
+    }
+
 }
