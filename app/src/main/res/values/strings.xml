@@ -11,4 +11,6 @@
     <string name="registerNow">New member? Register now</string>
     <string name="loginNow">Already a member? Log In</string>
     <string name="phoneNumber">Phone number</string>
+    <string name="rememberMe">Remember me</string>
+    <string name="othersConnection">or sign in with</string>
 </resources>
