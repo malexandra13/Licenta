@@ -13,4 +13,5 @@
     <string name="phoneNumber">Phone number</string>
     <string name="rememberMe">Remember me</string>
     <string name="othersConnection">or sign in with</string>
+    <string name="forgotPassword">Forgot password</string>
 </resources>
