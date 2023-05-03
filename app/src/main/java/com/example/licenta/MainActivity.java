@@ -2,12 +2,14 @@ package com.example.licenta;
 
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,13 +24,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
     Button buttonLogout;
     FirebaseUser user;
-
 
 
     @Override
@@ -46,12 +52,23 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
-        } else {
-            SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
-            String firstName = sharedPreferences.getString("firstName", "");
-            String lastName = sharedPreferences.getString("lastName", "");
-            greetingTextView.setText("Hello, " + firstName + " " + lastName + "!");
         }
+
+        DocumentReference documentReference = FirebaseFirestore.getInstance().
+                collection("users").document(user.getUid());
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(DocumentSnapshot value, FirebaseFirestoreException error) {
+                if (error != null) {
+                    Log.e("Firestore error", error.getMessage());
+                    return;
+                }
+
+                if (value != null && value.exists()) {
+                    greetingTextView.setText("Hello, " + value.get("firstName") +" "+ value.get("lastName") + "!");
+                }
+            }
+        });
 
 
         GoogleSignInAccount signInAccount=GoogleSignIn.getLastSignedInAccount(this);
@@ -59,14 +76,19 @@ public class MainActivity extends AppCompatActivity {
             greetingTextView.setText("Hello, " + signInAccount.getDisplayName() + "!");
 
         }
+
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent=new Intent(getApplicationContext(),Login.class);
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 finish();
             }
         });
+    }
+
+    private void updateUI() {
+
     }
 }

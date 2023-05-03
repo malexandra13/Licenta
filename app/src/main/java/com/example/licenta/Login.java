@@ -39,7 +39,6 @@ public class Login extends AppCompatActivity {
     ProgressBar progressBar;
     TextView textViewRegister;
     CheckBox checkBoxRememberMe;
-
     SignInButton googleButton;
     private GoogleSignInClient googleSignInClient;
 

@@ -20,12 +20,14 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Register extends AppCompatActivity {
 
     TextInputEditText editTextEmail, editTextPassword, editTextLastName, editTextFirstName, editTextPhoneNumber;
     Button buttonRegister;
     FirebaseAuth mAuth;
+    FirebaseFirestore firebaseFirestore;
     ProgressBar progressBar;
     TextView textViewLogin;
 
@@ -48,6 +50,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.register);
 
         mAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
         buttonRegister = findViewById(R.id.registerButton);
@@ -108,12 +111,6 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("firstName", firstName);
-                editor.putString("lastName", lastName);
-                editor.apply();
-
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -127,6 +124,9 @@ public class Register extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(Register.this, "Account created. Please check your email for verification.",
                                                         Toast.LENGTH_SHORT).show();
+                                                firebaseFirestore.collection("users").
+                                                        document(mAuth.getCurrentUser().getUid()).
+                                                        set(new User(firstName, lastName, phoneNumber, email));
                                             } else {
                                                 Toast.makeText(Register.this, "Account already exist.",
                                                         Toast.LENGTH_SHORT).show();
