@@ -7,7 +7,6 @@
     <string name="logout">Logout</string>
     <string name="firstName">First name</string>
     <string name="lastName">Last name</string>
-    <string name="greetingText">Hello,</string>
     <string name="registerNow">New member? Register now</string>
     <string name="loginNow">Already a member? Log In</string>
     <string name="phoneNumber">Phone number</string>
