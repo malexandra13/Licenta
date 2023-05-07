@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.licenta.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.example.licenta.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.licenta.AboutFragment"
+        android:label="AboutUs"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_inbox"
+        android:name="com.example.licenta.InboxFragment"
+        android:label="Inbox"
+        tools:layout="@layout/fragment_inbox" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.licenta.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
