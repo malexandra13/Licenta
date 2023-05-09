@@ -6,16 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".AboutFragment">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/nav_about"
-        android:scaleType="centerCrop"/>
     <TextView
         android:layout_width="125dp"
         android:layout_height="92dp"
         android:layout_gravity="center"
-        android:text="About"
+        android:text="About Fragment"
         android:textSize="20sp" />
 
 </FrameLayout>

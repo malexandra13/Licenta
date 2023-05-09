@@ -5,19 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/nav_home" />
-
     <TextView
-        android:layout_width="152dp"
-        android:layout_height="162dp"
+        android:layout_width="125dp"
+        android:layout_height="92dp"
         android:layout_gravity="center"
-        android:text="Home"
-        android:textColor="@color/lavender"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:text="Home Fragment"
+        android:textSize="20sp" />
 
 </FrameLayout>

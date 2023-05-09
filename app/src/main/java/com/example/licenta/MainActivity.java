@@ -8,18 +8,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -51,9 +50,39 @@ public class MainActivity extends AppCompatActivity {
         user = auth.getCurrentUser();
 
         NavigationView navigationView = findViewById(R.id.navigationView);
+        navigationView.setItemIconTintList(null);
+        Menu navMenu = navigationView.getMenu();
+        MenuItem navLogout = navMenu.findItem(R.id.nav_logout);
 
         View headerView = navigationView.getHeaderView(0);
         navHeaderName = headerView.findViewById(R.id.navHeaderName);
+
+        final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+
+        NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
+        NavigationUI.setupWithNavController(navigationView, navController);
+
+        textViewTitle = findViewById(R.id.textViewAppName);
+
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController navController,
+                                             @NonNull NavDestination navDestination,
+                                             @Nullable Bundle bundle) {
+                textViewTitle.setText(navDestination.getLabel());
+            }
+        });
+
+        navLogout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+                return true;
+            }
+        });
 
         if (user == null) {
             Intent intent = new Intent(getApplicationContext(), Login.class);
@@ -81,9 +110,10 @@ public class MainActivity extends AppCompatActivity {
         if (signInAccount != null) {
             navHeaderName.setText("Hello, " + signInAccount.getDisplayName() + "!");
 
+        }else{
+            navHeaderName.setText("Hello, " + user.getDisplayName() + "!");
         }
-
-        final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+//
         findViewById(R.id.imageViewMenu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,70 +122,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
-        NavigationUI.setupWithNavController(navigationView, navController);
-
-        textViewTitle = findViewById(R.id.textViewAppName);
-
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@androidx.annotation.NonNull NavController navController, @androidx.annotation.NonNull NavDestination navDestination, @Nullable Bundle bundle) {
-                if (navDestination.getId() == R.id.nav_home) {
-                    textViewTitle.setText("Home");
-                } else if (navDestination.getId() == R.id.nav_account) {
-                    textViewTitle.setText("Profile");
-                } else if (navDestination.getId() == R.id.nav_inbox) {
-                    textViewTitle.setText("Inbox");
-                } else if (navDestination.getId() == R.id.nav_about) {
-                    textViewTitle.setText("About");
-                } else if (navDestination.getId() == R.id.nav_settings) {
-                    textViewTitle.setText("Settings");
-                }
-            }
-        });
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment = null;
-                int itemId = item.getItemId();
-                if (itemId == R.id.nav_home) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.navHostFragment, new HomeFragment())
-                            .commit();
-                } else if (itemId == R.id.nav_account) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.navHostFragment, new ProfileFragment())
-                            .commit();
-                } else if (itemId == R.id.nav_inbox) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.navHostFragment, new InboxFragment())
-                            .commit();
-                } else if (itemId == R.id.nav_about) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.navHostFragment, new AboutFragment())
-                            .commit();
-                } else if (itemId == R.id.nav_settings) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.navHostFragment, new SettingsFragment())
-                            .commit();
-                } else if (itemId == R.id.nav_logout) {
-                    FirebaseAuth.getInstance().signOut();
-                    Intent intent = new Intent(MainActivity.this, Login.class);
-                    startActivity(intent);
-                    finish();
-                }
-
-                DrawerLayout drawer = findViewById(R.id.drawerLayout);
-                drawer.closeDrawer(GravityCompat.START);
-                return true;
-            }
-        });
-
-
-
-
     }
-
 
 
 }
