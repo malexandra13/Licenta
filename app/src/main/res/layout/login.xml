@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="15dp"
-    tools:context=".Login">
+    tools:context=".login_register.Login">
 
     <TextView
         android:layout_width="wrap_content"

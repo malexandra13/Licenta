@@ -1,15 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".fragments.HomeFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="40dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp">
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:iss_auto_cycle="true"
+            app:iss_corner_radius="20"
+            app:iss_delay="2000"
+            app:iss_period="2000"
+            app:iss_title_background="@drawable/gradient">
+
+        </com.denzcoskun.imageslider.ImageSlider>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="145dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginEnd="40dp"
+        android:drawableLeft="@drawable/calendar"
+        android:text="@string/appoiment">
+
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginEnd="40dp"
+        android:drawableLeft="@drawable/history"
+        android:text="@string/history">
+
+    </Button>
 
     <TextView
-        android:layout_width="125dp"
-        android:layout_height="92dp"
-        android:layout_gravity="center"
-        android:text="Home Fragment"
-        android:textSize="20sp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="315dp"
+        android:layout_marginEnd="60dp"
+        android:text="@string/inspiration"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:layout_marginTop="340dp" />
+
 
 </FrameLayout>

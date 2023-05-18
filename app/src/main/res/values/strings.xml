@@ -22,4 +22,7 @@
     <string name="menu_account">My account</string>
     <string name="menu_about">About us</string>
     <string name="others">Others</string>
+    <string name="appoiment">Booking</string>
+    <string name="history">History</string>
+    <string name="inspiration">Today\'s inspiration</string>
 </resources>

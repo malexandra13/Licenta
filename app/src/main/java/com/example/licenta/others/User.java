@@ -1,4 +1,4 @@
-package com.example.licenta;
+package com.example.licenta.others;
 
 public class User {
     private String firstName;
