@@ -4,8 +4,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -21,8 +19,8 @@ import android.view.View;
 import android.widget.TextView;
 
 
-import com.example.licenta.fragments.HomeFragment;
 import com.example.licenta.login_register.Login;
+import com.example.licenta.others.OnFragmentChangedListener;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -40,7 +38,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-public class MainActivity extends AppCompatActivity implements OnFragmentChangedListener{
+public class MainActivity extends AppCompatActivity implements OnFragmentChangedListener {
 
     TextView navHeaderName;
     FirebaseAuth auth;

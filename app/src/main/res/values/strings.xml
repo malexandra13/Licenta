@@ -26,4 +26,6 @@
     <string name="inbox">Inbox</string>
     <string name="about_us">About Us</string>
     <string name="settings">Settings</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
 </resources>

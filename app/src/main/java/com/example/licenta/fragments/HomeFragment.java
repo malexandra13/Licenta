@@ -17,9 +17,9 @@ import android.widget.Button;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.licenta.OnFragmentChangedListener;
+import com.example.licenta.others.OnFragmentChangedListener;
 import com.example.licenta.R;
-import com.example.licenta.RecyclerViewAdapter;
+import com.example.licenta.others.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
@@ -29,12 +29,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerViewAdapter;
     private ArrayList<Integer> integerArrayList;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public void onAttach(Context context) {

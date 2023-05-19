@@ -1,4 +1,4 @@
-package com.example.licenta;
+package com.example.licenta.others;
 
 import android.view.MenuItem;
 

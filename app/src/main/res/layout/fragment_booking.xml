@@ -6,10 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".fragments.BookingFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Booking Fragment" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="650dp"
+        android:text="@string/back" />
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="650dp"
+        android:text="@string/next" />
 
 </FrameLayout>
