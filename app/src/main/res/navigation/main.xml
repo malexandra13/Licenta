@@ -30,4 +30,14 @@
         android:name="com.example.licenta.fragments.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.licenta.fragments.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.licenta.fragments.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>

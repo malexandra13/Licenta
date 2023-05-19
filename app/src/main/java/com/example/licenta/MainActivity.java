@@ -4,6 +4,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -19,6 +21,7 @@ import android.view.View;
 import android.widget.TextView;
 
 
+import com.example.licenta.fragments.HomeFragment;
 import com.example.licenta.login_register.Login;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -37,12 +40,13 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnFragmentChangedListener{
 
     TextView navHeaderName;
     FirebaseAuth auth;
     FirebaseUser user;
     TextView textViewTitle;
+    DrawerLayout drawerLayout;
 
 
     @Override
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         View headerView = navigationView.getHeaderView(0);
         navHeaderName = headerView.findViewById(R.id.navHeaderName);
 
-        final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        drawerLayout = findViewById(R.id.drawerLayout);
 
         NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -131,5 +135,10 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+    }
+
+    @Override
+    public void onFragmentChanged(String fragmentName) {
+        textViewTitle.setText(fragmentName);
     }
 }

@@ -31,6 +31,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/buttonBooking"
         android:layout_width="145dp"
         android:layout_height="68dp"
         android:layout_marginStart="40dp"
@@ -42,6 +43,7 @@
     </Button>
 
     <Button
+        android:id="@+id/buttonHistory"
         android:layout_width="wrap_content"
         android:layout_height="68dp"
         android:layout_marginStart="220dp"

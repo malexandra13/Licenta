@@ -1,25 +1,30 @@
 package com.example.licenta.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.licenta.OnFragmentChangedListener;
 import com.example.licenta.R;
 import com.example.licenta.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
+    private OnFragmentChangedListener fragmentChangedListener;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerViewAdapter;
@@ -29,6 +34,16 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            fragmentChangedListener = (OnFragmentChangedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement OnFragmentChangedListener");
+        }
     }
 
     @Override
@@ -55,10 +70,37 @@ public class HomeFragment extends Fragment {
         integerArrayList.add(R.drawable.barba);
         integerArrayList.add(R.drawable.make_up2);
 
-
         recyclerViewAdapter = new RecyclerViewAdapter(getContext(), integerArrayList);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(recyclerViewAdapter);
+
+        Button buttonBooking = view.findViewById(R.id.buttonBooking);
+        buttonBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BookingFragment bookingFragment = new BookingFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.navHostFragment, bookingFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                fragmentChangedListener.onFragmentChanged("Booking Fragment");
+            }
+        });
+
+        Button buttonHistory = view.findViewById(R.id.buttonHistory);
+        buttonHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HistoryFragment historyFragment = new HistoryFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.navHostFragment, historyFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                fragmentChangedListener.onFragmentChanged("History Fragment");
+            }
+        });
     }
 
     @Override
