@@ -14,21 +14,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NavigationDrawer"
         tools:targetApi="31">
+
         <activity
-            android:name=".login_register.Register"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".login_register.Login"
+            android:name=".ChooseScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--employee-->
+        <activity
+            android:name=".employee.MainEmployeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".employee.LoginEmployee"
+            android:exported="false" />
+
+        <!--owner-->
+        <activity
+            android:name=".owner.MainOwnerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".owner.AddSalonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".owner.login_register.LoginOwner"
+            android:exported="false" />
+        <activity
+            android:name=".owner.login_register.RegisterOwner"
+            android:exported="false" />
+
+        <!--client-->
+        <activity
+            android:name=".client.login_register.RegisterClient"
+            android:exported="false" />
+        <activity
+            android:name=".client.MainClientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".client.login_register.LoginClient"
+            android:exported="false" />
+
+
     </application>
 
 </manifest>

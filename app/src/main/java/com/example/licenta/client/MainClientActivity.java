@@ -1,4 +1,4 @@
-package com.example.licenta;
+package com.example.licenta.client;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +19,9 @@ import android.view.View;
 import android.widget.TextView;
 
 
-import com.example.licenta.login_register.Login;
-import com.example.licenta.others.OnFragmentChangedListener;
+import com.example.licenta.R;
+import com.example.licenta.client.login_register.LoginClient;
+import com.example.licenta.client.others.OnFragmentChangedListener;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -38,7 +39,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-public class MainActivity extends AppCompatActivity implements OnFragmentChangedListener {
+public class MainClientActivity extends AppCompatActivity implements OnFragmentChangedListener {
 
     TextView navHeaderName;
     FirebaseAuth auth;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentChanged
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_client);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -85,11 +86,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentChanged
                 GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).
                         requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
 
-                GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(MainActivity.this, gso);
+                GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(MainClientActivity.this, gso);
                 googleSignInClient.revokeAccess().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@androidx.annotation.NonNull Task<Void> task) {
-                        Intent intent = new Intent(MainActivity.this, Login.class);
+                        Intent intent = new Intent(MainClientActivity.this, LoginClient.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                         finish();
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentChanged
         });
 
         if (user == null) {
-            Intent intent = new Intent(getApplicationContext(), Login.class);
+            Intent intent = new Intent(getApplicationContext(), LoginClient.class);
             startActivity(intent);
             finish();
         }

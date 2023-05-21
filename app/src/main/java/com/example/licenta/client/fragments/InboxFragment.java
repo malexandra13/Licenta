@@ -1,4 +1,4 @@
-package com.example.licenta.fragments;
+package com.example.licenta.client.fragments;
 
 import android.os.Bundle;
 

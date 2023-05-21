@@ -1,4 +1,4 @@
-package com.example.licenta.login_register;
+package com.example.licenta.client.login_register;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.licenta.R;
-import com.example.licenta.others.User;
+import com.example.licenta.client.others.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Register extends AppCompatActivity {
+public class RegisterClient extends AppCompatActivity {
 
     TextInputEditText editTextEmail, editTextPassword, editTextLastName, editTextFirstName, editTextPhoneNumber;
     Button buttonRegister;
@@ -38,7 +38,7 @@ public class Register extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), Login.class);
+            Intent intent = new Intent(getApplicationContext(), LoginClient.class);
             startActivity(intent);
             finish();
         }
@@ -47,7 +47,7 @@ public class Register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register);
+        setContentView(R.layout.register_client);
 
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -64,7 +64,7 @@ public class Register extends AppCompatActivity {
         textViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), LoginClient.class);
                 startActivity(intent);
                 finish();
             }
@@ -122,20 +122,20 @@ public class Register extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(Register.this, "Account created. Please check your email for verification.",
+                                                Toast.makeText(RegisterClient.this, "Account created. Please check your email for verification.",
                                                         Toast.LENGTH_SHORT).show();
                                                 firebaseFirestore.collection("users").
                                                         document(mAuth.getCurrentUser().getUid()).
                                                         set(new User(firstName, lastName, phoneNumber, email));
                                             } else {
-                                                Toast.makeText(Register.this, "Account already exist.",
+                                                Toast.makeText(RegisterClient.this, "Account already exist.",
                                                         Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
 //
                                 } else {
-                                    Toast.makeText(Register.this, "Account already exist.",
+                                    Toast.makeText(RegisterClient.this, "Account already exist.",
                                             Toast.LENGTH_SHORT).show();
 
                                 }

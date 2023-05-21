@@ -1,4 +1,4 @@
-package com.example.licenta.fragments;
+package com.example.licenta.client.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -17,9 +17,9 @@ import android.widget.Button;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.licenta.others.OnFragmentChangedListener;
+import com.example.licenta.client.others.OnFragmentChangedListener;
+import com.example.licenta.client.others.RecyclerViewAdapter;
 import com.example.licenta.R;
-import com.example.licenta.others.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 

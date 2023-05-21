@@ -1,4 +1,4 @@
-package com.example.licenta.others;
+package com.example.licenta.client.others;
 
 import android.content.Context;
 import android.view.LayoutInflater;
