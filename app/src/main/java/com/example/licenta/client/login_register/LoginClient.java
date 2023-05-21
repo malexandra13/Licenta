@@ -17,8 +17,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.licenta.ChooseScreen;
 import com.example.licenta.client.MainClientActivity;
 import com.example.licenta.R;
+import com.example.licenta.client.others.User;
+import com.example.licenta.owner.MainOwnerActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -33,6 +36,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 
 public class LoginClient extends AppCompatActivity {
 
@@ -46,19 +53,20 @@ public class LoginClient extends AppCompatActivity {
     SignInButton googleButton;
     private GoogleSignInClient googleSignInClient;
     TextView forgotPassword;
+    Button buttonBack;
+    User user;
 
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null && mAuth.getCurrentUser().isEmailVerified() == true) {
-            Intent intent = new Intent(getApplicationContext(), MainClientActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if (currentUser != null && mAuth.getCurrentUser().isEmailVerified() == true) {
+//            Intent intent = new Intent(getApplicationContext(), MainClientActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +81,17 @@ public class LoginClient extends AppCompatActivity {
         textViewRegister = findViewById(R.id.registerNow);
         forgotPassword = findViewById(R.id.forgotPassword);
         googleButton = findViewById(R.id.googleButton);
+        buttonBack = findViewById(R.id.buttonBack);
 
-        //!TO-DO : implement check box "remember me"
-        checkBoxRememberMe = findViewById(R.id.checkBoxRememberMe);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ChooseScreen.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         createRequest();
@@ -156,28 +172,80 @@ public class LoginClient extends AppCompatActivity {
                     return;
                 }
 
+//                mAuth.signInWithEmailAndPassword(email, password)
+//                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<AuthResult> task) {
+//                                progressBar.setVisibility(View.GONE);
+//                                if (task.isSuccessful()) {
+//                                    if (user.getUserType().equals("client")) {
+//                                        if (mAuth.getCurrentUser().isEmailVerified()) {
+//                                            Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_LONG).show();
+//                                            Intent intent = new Intent(getApplicationContext(), MainClientActivity.class);
+//                                            startActivity(intent);
+//                                            finish();
+//                                        } else {
+//                                            Toast.makeText(getApplicationContext(), "Please verify your email address", Toast.LENGTH_LONG).show();
+//                                            return;
+//                                        }
+//                                    } else {
+//                                        Toast.makeText(getApplicationContext(), "You are not a client", Toast.LENGTH_LONG).show();
+//                                        return;
+//                                    }
+//
+//                                } else {
+//                                    Toast.makeText(getApplicationContext(), "Authentication failed.",
+//                                            Toast.LENGTH_SHORT).show();
+//
+//                                }
+//                            }
+//                        });
+
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    if (mAuth.getCurrentUser().isEmailVerified() == false) {
-                                        Toast.makeText(getApplicationContext(), "Please verify your email address", Toast.LENGTH_LONG).show();
-                                        return;
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(getApplicationContext(), MainClientActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                } else {
-                                    Toast.makeText(LoginClient.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                    FirebaseUser currentUser = mAuth.getCurrentUser();
+                                    String userId = currentUser.getUid();
 
+                                    // Retrieve the user type from Firebase Firestore
+                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                    DocumentReference userRef = db.collection("clients").document(userId);
+                                    userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot document = task.getResult();
+                                                if (document.exists()) {
+                                                    String userType = document.getString("userType");
+                                                    if (userType != null && userType.equals("client")) {
+                                                        if (mAuth.getCurrentUser().isEmailVerified()) {
+                                                            Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_LONG).show();
+                                                            Intent intent = new Intent(getApplicationContext(), MainClientActivity.class);
+                                                            startActivity(intent);
+                                                            finish();
+                                                        } else {
+                                                            Toast.makeText(getApplicationContext(), "Please verify your email address", Toast.LENGTH_LONG).show();
+                                                        }
+                                                    } else {
+                                                        Toast.makeText(getApplicationContext(), "You are not a client", Toast.LENGTH_LONG).show();
+                                                    }
+                                                } else {
+                                                    Toast.makeText(getApplicationContext(), "User document does not exist", Toast.LENGTH_LONG).show();
+                                                }
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "Failed to retrieve user information", Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
+
             }
         });
     }

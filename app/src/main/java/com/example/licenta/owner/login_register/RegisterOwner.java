@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.licenta.ChooseScreen;
 import com.example.licenta.R;
 import com.example.licenta.client.others.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,24 +31,12 @@ public class RegisterOwner extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     ProgressBar progressBar;
     TextView textViewLogin;
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), LoginOwner.class);
-            startActivity(intent);
-            finish();
-        }
-    }
+    Button buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_client);
+        setContentView(R.layout.register_owner);
 
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -59,6 +48,16 @@ public class RegisterOwner extends AppCompatActivity {
         editTextLastName = findViewById(R.id.lastName);
         editTextFirstName = findViewById(R.id.firstName);
         editTextPhoneNumber = findViewById(R.id.phoneNumber);
+        buttonBack = findViewById(R.id.buttonBack);
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ChooseScreen.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         textViewLogin.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +73,7 @@ public class RegisterOwner extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                String userType = "owner";
                 String email = String.valueOf(editTextEmail.getText());
                 String password = String.valueOf(editTextPassword.getText());
                 String lastName = String.valueOf(editTextLastName.getText());
@@ -124,9 +124,9 @@ public class RegisterOwner extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(RegisterOwner.this, "Account created. Please check your email for verification.",
                                                         Toast.LENGTH_SHORT).show();
-                                                firebaseFirestore.collection("users").
+                                                firebaseFirestore.collection("owners").
                                                         document(mAuth.getCurrentUser().getUid()).
-                                                        set(new User(firstName, lastName, phoneNumber, email));
+                                                        set(new User(userType, firstName, lastName, phoneNumber, email));
                                             } else {
                                                 Toast.makeText(RegisterOwner.this, "Account already exist.",
                                                         Toast.LENGTH_SHORT).show();
@@ -145,4 +145,17 @@ public class RegisterOwner extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            Intent intent = new Intent(getApplicationContext(), LoginOwner.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
 }

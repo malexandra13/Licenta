@@ -1,17 +1,27 @@
 package com.example.licenta.client.others;
 
 public class User {
+    private String userType;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
 
 
-    public User(String firstName, String lastName, String phoneNumber, String email) {
+    public User(String userType, String firstName, String lastName, String phoneNumber, String email) {
+        this.userType = userType;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public String getFirstName() {

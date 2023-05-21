@@ -4,10 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="15dp"
     tools:context=".client.login_register.RegisterClient">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Register as client"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,70 +28,75 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/firstName"
-            android:hint="@string/firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/person"
-            android:drawablePadding="15dp"/>
+            android:drawablePadding="15dp"
+            android:hint="@string/firstName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/lastName"
-            android:hint="@string/lastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/person"
-            android:drawablePadding="15dp"/>
+            android:drawablePadding="15dp"
+            android:hint="@string/lastName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phoneNumber"
-            android:hint="@string/phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:drawableLeft="@drawable/baseline_local_phone_24"
-            android:drawablePadding="15dp"/>
+            android:drawablePadding="15dp"
+            android:hint="@string/phoneNumber"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
-            android:hint="@string/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/baseline_email_24"
-            android:drawablePadding="15dp"/>
+            android:drawablePadding="15dp"
+            android:hint="@string/email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
-            android:hint="@string/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
             android:drawableLeft="@drawable/baseline_password_24"
-            android:drawablePadding="15dp"/>
+            android:drawablePadding="15dp"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:visibility="gone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/registerButton"
@@ -94,13 +106,18 @@
 
     <TextView
         android:id="@+id/loginNow"
-        android:text="@string/loginNow"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/loginNow"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:text="@string/back" />
 
 </LinearLayout>

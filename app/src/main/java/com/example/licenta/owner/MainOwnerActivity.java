@@ -77,7 +77,7 @@ public class MainOwnerActivity extends AppCompatActivity {
             finish();
         }
 
-        DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(user.getUid());
+        DocumentReference documentReference = FirebaseFirestore.getInstance().collection("owners").document(user.getUid());
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(DocumentSnapshot value, FirebaseFirestoreException error) {

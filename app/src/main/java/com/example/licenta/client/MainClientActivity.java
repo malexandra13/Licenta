@@ -106,7 +106,7 @@ public class MainClientActivity extends AppCompatActivity implements OnFragmentC
             finish();
         }
 
-        DocumentReference documentReference = FirebaseFirestore.getInstance().collection("users").document(user.getUid());
+        DocumentReference documentReference = FirebaseFirestore.getInstance().collection("clients").document(user.getUid());
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(DocumentSnapshot value, FirebaseFirestoreException error) {

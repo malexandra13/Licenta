@@ -37,9 +37,6 @@
             android:name=".owner.MainOwnerActivity"
             android:exported="false" />
         <activity
-            android:name=".owner.AddSalonActivity"
-            android:exported="false" />
-        <activity
             android:name=".owner.login_register.LoginOwner"
             android:exported="false" />
         <activity

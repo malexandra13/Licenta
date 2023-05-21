@@ -9,6 +9,13 @@
     tools:context=".owner.login_register.LoginOwner">
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Login as owner" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -50,12 +57,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone" />
-
-    <CheckBox
-        android:id="@+id/checkBoxRememberMe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/rememberMe" />
 
     <Button
         android:id="@+id/loginButton"
@@ -106,6 +107,12 @@
         android:text="@string/forgotPassword"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:text="@string/back" />
 
 </LinearLayout>
 
