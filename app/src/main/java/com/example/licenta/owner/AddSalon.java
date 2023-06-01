@@ -4,14 +4,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,18 +33,18 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-import java.util.UUID;
-
 public class AddSalon extends AppCompatActivity {
 
-    TextView salonName, salonState, salonCity, salonStreet, salonPostalCode, salonPhone, salonEmail, salonDescription;
+    TextView salonName, salonStreet, salonPostalCode, salonPhone, salonEmail, salonDescription, salonCity;
     ImageView uploadImageView, salonImageView;
+    Spinner salonStateSpinner;
     Button addSalonButton;
     RelativeLayout relativeLayout;
     Uri imageUri;
 
     private FirebaseDatabase database;
     private FirebaseStorage storage;
+    ProgressDialog progressDialog;
 
 
     @Override
@@ -53,9 +55,15 @@ public class AddSalon extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.setTitle("Uploading salon");
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+
 
         salonName = findViewById(R.id.salonName);
-        salonState = findViewById(R.id.salonState);
         salonCity = findViewById(R.id.salonCity);
         salonStreet = findViewById(R.id.salonStreet);
         salonPostalCode = findViewById(R.id.salonPostalCode);
@@ -66,6 +74,13 @@ public class AddSalon extends AppCompatActivity {
         salonImageView = findViewById(R.id.salonImage);
         relativeLayout = findViewById(R.id.relative);
         addSalonButton = findViewById(R.id.addSalon);
+
+        salonStateSpinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.spinner_items));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        salonStateSpinner.setAdapter(adapter);
 
         uploadImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +96,8 @@ public class AddSalon extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                progressDialog.show();
+
                 final StorageReference reference = storage.getReference()
                         .child("salon")
                         .child(System.currentTimeMillis() + "");
@@ -93,33 +110,34 @@ public class AddSalon extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
 
-                                ProjectModel projectModel = new ProjectModel();
-                                projectModel.setSalonImage(uri.toString());
+                                SalonModel salonModel = new SalonModel();
+                                salonModel.setSalonImage(uri.toString());
 
-                                projectModel.setSalonName(salonName.getText().toString());
-                                projectModel.setSalonState(salonState.getText().toString());
-                                projectModel.setSalonCity(salonCity.getText().toString());
-                                projectModel.setSalonStreet(salonStreet.getText().toString());
-                                projectModel.setSalonPostalCode(salonPostalCode.getText().toString());
-                                projectModel.setSalonPhone(salonPhone.getText().toString());
-                                projectModel.setSalonEmail(salonEmail.getText().toString());
-                                projectModel.setSalonDescription(salonDescription.getText().toString());
+                                salonModel.setSalonName(salonName.getText().toString());
+                                salonModel.setSalonCity(salonCity.getText().toString());
+                                salonModel.setSalonState(salonStateSpinner.getSelectedItem().toString());
+                                salonModel.setSalonStreet(salonStreet.getText().toString());
+                                salonModel.setSalonPostalCode(salonPostalCode.getText().toString());
+                                salonModel.setSalonPhone(salonPhone.getText().toString());
+                                salonModel.setSalonEmail(salonEmail.getText().toString());
+                                salonModel.setSalonDescription(salonDescription.getText().toString());
 
                                 database.getReference().child("salon").push()
-                                        .setValue(projectModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        .setValue(salonModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 Toast.makeText(AddSalon.this, "Salon added successfully", Toast.LENGTH_LONG).show();
                                                 Intent intent = new Intent(AddSalon.this, MainOwnerActivity.class);
                                                 startActivity(intent);
                                                 finish();
+                                                progressDialog.dismiss();
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
 
                                                 Toast.makeText(AddSalon.this, "Failed to add salon", Toast.LENGTH_LONG).show();
-
+                                                progressDialog.dismiss();
                                             }
                                         });
 

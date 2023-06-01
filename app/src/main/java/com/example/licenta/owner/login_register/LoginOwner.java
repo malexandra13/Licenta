@@ -19,8 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.licenta.ChooseScreen;
 import com.example.licenta.R;
-import com.example.licenta.client.MainClientActivity;
-import com.example.licenta.client.login_register.LoginClient;
 import com.example.licenta.client.others.User;
 import com.example.licenta.owner.MainOwnerActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;

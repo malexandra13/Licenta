@@ -27,7 +27,7 @@
     <string name="about_us">About Us</string>
     <string name="settings">Settings</string>
     <string name="next">Next</string>
-    <string name="back">Back to main screen</string>
+    <string name="back_main_screen">Back to main screen</string>
     <string name="client_interface">Client Interface</string>
     <string name="salon_owner">Salon Owner Portal</string>
     <string name="employee_dashboard">Employee Dashboard</string>
@@ -43,4 +43,51 @@
     <string name="salonDescription">Description</string>
     <string name="salonProgram">Opening hours</string>
     <string name="upload_image">Upload an image</string>
+    <string name="back">Back</string>
+    <string-array name="spinner_items">
+        <item>Select a state</item>
+        <item>Alba Iulia</item>
+        <item>Arad</item>
+        <item>Argeș</item>
+        <item>Bacău</item>
+        <item>Bihor</item>
+        <item>Bistrița-Năsăud</item>
+        <item>Botoșani</item>
+        <item>Brașov</item>
+        <item>Brăila</item>
+        <item>București</item>
+        <item>Buzău</item>
+        <item>Caraș-Severin</item>
+        <item>Călărași</item>
+        <item>Cluj</item>
+        <item>Constanța</item>
+        <item>Covasna</item>
+        <item>Dâmbovița</item>
+        <item>Dolj</item>
+        <item>Galați</item>
+        <item>Giurgiu</item>
+        <item>Gorj</item>
+        <item>Harghita</item>
+        <item>Hunedoara</item>
+        <item>Ialomița</item>
+        <item>Iași</item>
+        <item>Ilfov</item>
+        <item>Maramureș</item>
+        <item>Mehedinți</item>
+        <item>Mureș</item>
+        <item>Neamț</item>
+        <item>Olt</item>
+        <item>Prahova</item>
+        <item>Satu Mare</item>
+        <item>Sălaj</item>
+        <item>Sibiu</item>
+        <item>Suceava</item>
+        <item>Teleorman</item>
+        <item>Timiș</item>
+        <item>Tulcea</item>
+        <item>Vaslui</item>
+        <item>Vâlcea</item>
+        <item>Vrancea</item>
+    </string-array>
+
 </resources>

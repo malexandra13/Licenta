@@ -7,20 +7,20 @@
     tools:context=".client.fragments.BookingFragment">
 
 
-    <Button
-        android:id="@+id/buttonBack"
-        android:layout_width="118dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="650dp"
-        android:text="@string/back" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="365dp"
+        android:layout_height="675dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="20dp" />
 
-    <Button
-        android:id="@+id/buttonNext"
-        android:layout_width="118dp"
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="230dp"
-        android:layout_marginTop="650dp"
-        android:text="@string/next" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="20dp" />
 
 </FrameLayout>

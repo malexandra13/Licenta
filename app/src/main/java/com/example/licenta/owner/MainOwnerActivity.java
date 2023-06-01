@@ -10,10 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
 import com.example.licenta.R;
-import com.example.licenta.client.login_register.LoginClient;
 
+import com.example.licenta.owner.login_register.LoginOwner;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -80,7 +79,7 @@ public class MainOwnerActivity extends AppCompatActivity {
                 googleSignInClient.revokeAccess().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@androidx.annotation.NonNull Task<Void> task) {
-                        Intent intent = new Intent(MainOwnerActivity.this, LoginClient.class);
+                        Intent intent = new Intent(MainOwnerActivity.this, LoginOwner.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                         finish();
@@ -91,7 +90,7 @@ public class MainOwnerActivity extends AppCompatActivity {
         });
 
         if (user == null) {
-            Intent intent = new Intent(getApplicationContext(), LoginClient.class);
+            Intent intent = new Intent(getApplicationContext(), LoginOwner.class);
             startActivity(intent);
             finish();
         }

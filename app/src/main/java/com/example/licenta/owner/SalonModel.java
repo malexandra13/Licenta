@@ -1,14 +1,13 @@
 package com.example.licenta.owner;
 
-public class ProjectModel {
+public class SalonModel {
     private String salonName, salonState, salonCity, salonStreet, salonPostalCode, salonPhone, salonEmail, salonDescription;
     private String salonImage;
 
-
-    public ProjectModel() {
+    public SalonModel() {
     }
 
-    public ProjectModel(String salonName, String salonState, String salonCity, String salonStreet, String salonPostalCode, String salonPhone, String salonEmail, String salonDescription, String salonImage) {
+    public SalonModel(String salonName, String salonState, String salonCity, String salonStreet, String salonPostalCode, String salonPhone, String salonEmail, String salonDescription, String salonImage) {
         this.salonName = salonName;
         this.salonState = salonState;
         this.salonCity = salonCity;
