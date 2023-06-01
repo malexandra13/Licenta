@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:allowBackup="true"
@@ -14,25 +16,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NavigationDrawer"
         tools:targetApi="31">
-
+        <activity
+            android:name=".owner.AddSalon"
+            android:exported="false" />
+        <activity
+            android:name=".owner.AddEmployee"
+            android:exported="false" />
         <activity
             android:name=".ChooseScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!--employee-->
+        </activity> <!-- employee -->
         <activity
             android:name=".employee.MainEmployeeActivity"
             android:exported="false" />
         <activity
             android:name=".employee.LoginEmployee"
-            android:exported="false" />
-
-        <!--owner-->
+            android:exported="false" /> <!-- owner -->
         <activity
             android:name=".owner.MainOwnerActivity"
             android:exported="false" />
@@ -41,9 +45,7 @@
             android:exported="false" />
         <activity
             android:name=".owner.login_register.RegisterOwner"
-            android:exported="false" />
-
-        <!--client-->
+            android:exported="false" /> <!-- client -->
         <activity
             android:name=".client.login_register.RegisterClient"
             android:exported="false" />
@@ -53,8 +55,6 @@
         <activity
             android:name=".client.login_register.LoginClient"
             android:exported="false" />
-
-
     </application>
 
 </manifest>

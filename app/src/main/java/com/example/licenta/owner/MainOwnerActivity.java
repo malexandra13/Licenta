@@ -31,12 +31,13 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 
 public class MainOwnerActivity extends AppCompatActivity {
-
-    TextView navHeaderName;
     FirebaseAuth auth;
     FirebaseUser user;
     TextView greetingText;
     Button btnLogout;
+    Button btnAddEmployee;
+
+    Button btnAddSalon;
 
 
     @Override
@@ -49,6 +50,24 @@ public class MainOwnerActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.buttonLogout);
         greetingText = findViewById(R.id.greetingTextView);
+        btnAddEmployee = findViewById(R.id.buttonAddEmployee);
+        btnAddSalon = findViewById(R.id.buttonAddSalon);
+
+        btnAddSalon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainOwnerActivity.this, AddSalon.class);
+                startActivity(intent);
+            }
+        });
+
+        btnAddEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainOwnerActivity.this, AddEmployee.class);
+                startActivity(intent);
+            }
+        });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override

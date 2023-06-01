@@ -31,4 +31,16 @@
     <string name="client_interface">Client Interface</string>
     <string name="salon_owner">Salon Owner Portal</string>
     <string name="employee_dashboard">Employee Dashboard</string>
+    <string name="add_an_employee">Add an employee</string>
+    <string name="createAccount">Create account</string>
+    <string name="add_salon">Add salon</string>
+    <string name="salonName">The name of the salon</string>
+    <string name="salonAddress">Salon address</string>
+    <string name="salonState">State</string>
+    <string name="salonCity">City</string>
+    <string name="salonStreet">Street</string>
+    <string name="salonPostalCode">Postal code</string>
+    <string name="salonDescription">Description</string>
+    <string name="salonProgram">Opening hours</string>
+    <string name="upload_image">Upload an image</string>
 </resources>

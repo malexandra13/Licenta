@@ -174,34 +174,6 @@ public class LoginOwner extends AppCompatActivity {
                     return;
                 }
 
-//                mAuth.signInWithEmailAndPassword(email, password)
-//                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<AuthResult> task) {
-//                                progressBar.setVisibility(View.GONE);
-//                                if (task.isSuccessful()) {
-//                                    if (user.getUserType().equals("owner")) {
-//                                        if (mAuth.getCurrentUser().isEmailVerified()) {
-//                                            Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_LONG).show();
-//                                            Intent intent = new Intent(getApplicationContext(), MainOwnerActivity.class);
-//                                            startActivity(intent);
-//                                            finish();
-//                                        } else {
-//                                            Toast.makeText(getApplicationContext(), "Please verify your email address", Toast.LENGTH_LONG).show();
-//                                            return;
-//                                        }
-//                                    } else {
-//                                        Toast.makeText(getApplicationContext(), "You are not a owner", Toast.LENGTH_LONG).show();
-//                                        return;
-//                                    }
-//
-//                                } else {
-//                                    Toast.makeText(getApplicationContext(), "Authentication failed.",
-//                                            Toast.LENGTH_SHORT).show();
-//
-//                                }
-//                            }
-//                        });
 
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
