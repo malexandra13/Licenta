@@ -6,16 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.licenta.client.login_register.LoginClient;
-import com.example.licenta.employee.LoginEmployee;
+import com.example.licenta.employee.login.LoginEmployee;
 import com.example.licenta.owner.login_register.LoginOwner;
 
 public class ChooseScreen extends AppCompatActivity {
 
-    Button btnClient;
-    Button btnOwner;
-    Button btnEmployee;
+    LinearLayout btnClient;
+    LinearLayout btnOwner;
+    LinearLayout btnEmployee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

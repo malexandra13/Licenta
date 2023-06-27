@@ -1,4 +1,4 @@
-package com.example.licenta.employee;
+package com.example.licenta.employee.login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.licenta.ChooseScreen;
 
 import com.example.licenta.R;
+import com.example.licenta.employee.MainEmployeeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -40,7 +41,6 @@ public class LoginEmployee extends AppCompatActivity {
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     TextView forgotPassword;
-    Button buttonBack;
 
 
     @Override
@@ -54,17 +54,6 @@ public class LoginEmployee extends AppCompatActivity {
         buttonLogin = findViewById(R.id.loginButton);
         progressBar = findViewById(R.id.progressBar);
         forgotPassword = findViewById(R.id.forgotPassword);
-        buttonBack = findViewById(R.id.buttonBack);
-
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ChooseScreen.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override

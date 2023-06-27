@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,12 +50,9 @@ public class LoginClient extends AppCompatActivity {
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     TextView textViewRegister;
-    CheckBox checkBoxRememberMe;
-    SignInButton googleButton;
+    LinearLayout googleButton;
     private GoogleSignInClient googleSignInClient;
     TextView forgotPassword;
-    Button buttonBack;
-    User user;
 
 
 //    @Override
@@ -81,18 +79,6 @@ public class LoginClient extends AppCompatActivity {
         textViewRegister = findViewById(R.id.registerNow);
         forgotPassword = findViewById(R.id.forgotPassword);
         googleButton = findViewById(R.id.googleButton);
-        buttonBack = findViewById(R.id.buttonBack);
-
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ChooseScreen.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
 
         createRequest();
 

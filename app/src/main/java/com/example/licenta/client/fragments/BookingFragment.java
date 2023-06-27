@@ -15,9 +15,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.example.licenta.owner.SalonAdapter;
+import com.example.licenta.owner.others.SalonAdapter;
 import com.example.licenta.R;
-import com.example.licenta.owner.SalonModel;
+import com.example.licenta.owner.others.SalonModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -70,15 +70,14 @@ public class BookingFragment extends Fragment {
         });
 
 
-
-        database.getReference().child("salon").addListenerForSingleValueEvent(new ValueEventListener() {
+        database.getReference().child("salon").
+                addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     SalonModel salonModel = dataSnapshot.getValue(SalonModel.class);
                     recycleList.add(salonModel);
                 }
-
                 recycleAdapter.notifyDataSetChanged();
             }
 
@@ -109,9 +108,6 @@ public class BookingFragment extends Fragment {
         }
         return filteredSalons;
     }
-
-
-
 
 
 }

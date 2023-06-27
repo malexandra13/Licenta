@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context=".SuccessfulPaymentActivity">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="297dp"
+        android:layout_height="221dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/preview"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="300dp"
+        android:text="@string/payment_successful"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="350dp"
+        android:gravity="center"
+        android:text="@string/completed_your_payment"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="74dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/x"
+        android:textColor="@color/white"
+        android:textSize="35sp" />
+
+
+</FrameLayout>

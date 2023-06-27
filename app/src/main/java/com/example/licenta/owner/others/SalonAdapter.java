@@ -1,4 +1,4 @@
-package com.example.licenta.owner;
+package com.example.licenta.owner.others;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,17 +13,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.licenta.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> {
 
     List<SalonModel> list;
     Context context;
+    private OnItemClickListener onItemClickListener;
+
 
     public SalonAdapter(List<SalonModel> list, Context context) {
         this.list = list;
         this.context = context;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(String salonId);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
     }
 
     @NonNull
@@ -47,6 +56,7 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
 
     }
 
+
     @Override
     public int getItemCount() {
         return list.size();
@@ -63,6 +73,17 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
             itemSalonCity = itemView.findViewById(R.id.twAddress);
             itemSalonDescription = itemView.findViewById(R.id.twDescription);
             itemSalonImageView = itemView.findViewById(R.id.imageViewSalon);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION && onItemClickListener != null) {
+                        onItemClickListener.onItemClick(list.get(position).getSalonId());
+                    }
+                }
+            });
+
 
         }
     }

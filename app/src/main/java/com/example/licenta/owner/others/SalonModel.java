@@ -1,13 +1,22 @@
-package com.example.licenta.owner;
+package com.example.licenta.owner.others;
+
+import java.util.UUID;
 
 public class SalonModel {
-    private String salonName, salonState, salonCity, salonStreet, salonPostalCode, salonPhone, salonEmail, salonDescription;
+    private String salonId;
+    private String accountId;
+    private String salonName;
+    private String salonState, salonCity, salonStreet, salonPostalCode;
+    private String salonPhone, salonEmail;
+    private String salonDescription;
     private String salonImage;
 
     public SalonModel() {
     }
 
-    public SalonModel(String salonName, String salonState, String salonCity, String salonStreet, String salonPostalCode, String salonPhone, String salonEmail, String salonDescription, String salonImage) {
+    public SalonModel(String salonId, String accountId, String salonName, String salonState, String salonCity, String salonStreet, String salonPostalCode, String salonPhone, String salonEmail, String salonDescription, String salonImage) {
+        this.salonId = salonId;
+        this.accountId = accountId;
         this.salonName = salonName;
         this.salonState = salonState;
         this.salonCity = salonCity;
@@ -17,6 +26,22 @@ public class SalonModel {
         this.salonEmail = salonEmail;
         this.salonDescription = salonDescription;
         this.salonImage = salonImage;
+    }
+
+    public String getSalonId() {
+        return salonId;
+    }
+
+    public void setSalonId(String salonId) {
+        this.salonId = salonId;
+    }
+
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
     }
 
     public String getSalonName() {

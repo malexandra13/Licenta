@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import com.example.licenta.R;
 
+import com.example.licenta.owner.activities.AddEmployee;
+import com.example.licenta.owner.activities.AddSalon;
+import com.example.licenta.owner.activities.MySalons;
 import com.example.licenta.owner.login_register.LoginOwner;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -37,6 +40,7 @@ public class MainOwnerActivity extends AppCompatActivity {
     Button btnAddEmployee;
 
     Button btnAddSalon;
+    Button btnViewSalons;
 
 
     @Override
@@ -51,6 +55,15 @@ public class MainOwnerActivity extends AppCompatActivity {
         greetingText = findViewById(R.id.greetingTextView);
         btnAddEmployee = findViewById(R.id.buttonAddEmployee);
         btnAddSalon = findViewById(R.id.buttonAddSalon);
+        btnViewSalons = findViewById(R.id.buttonViewSalons);
+
+        btnViewSalons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainOwnerActivity.this, MySalons.class);
+                startActivity(intent);
+            }
+        });
 
         btnAddSalon.setOnClickListener(new View.OnClickListener() {
             @Override

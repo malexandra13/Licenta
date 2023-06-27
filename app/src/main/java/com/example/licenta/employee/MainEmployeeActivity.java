@@ -10,8 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.licenta.R;
-import com.example.licenta.client.login_register.LoginClient;
-import com.example.licenta.owner.MainOwnerActivity;
+import com.example.licenta.employee.login.LoginEmployee;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;

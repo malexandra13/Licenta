@@ -9,21 +9,12 @@
     android:padding="15dp"
     tools:context=".client.login_register.RegisterClient">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Register as client"/>
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="@string/register"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:layout_height="248dp"
+        android:src="@drawable/register_client" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -33,6 +24,8 @@
             android:id="@+id/firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/platinum"
             android:drawableLeft="@drawable/person"
             android:drawablePadding="15dp"
             android:hint="@string/firstName" />
@@ -46,6 +39,8 @@
             android:id="@+id/lastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/platinum"
             android:drawableLeft="@drawable/person"
             android:drawablePadding="15dp"
             android:hint="@string/lastName" />
@@ -59,6 +54,8 @@
             android:id="@+id/phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/platinum"
             android:drawableLeft="@drawable/baseline_local_phone_24"
             android:drawablePadding="15dp"
             android:hint="@string/phoneNumber"
@@ -73,6 +70,8 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/platinum"
             android:drawableLeft="@drawable/baseline_email_24"
             android:drawablePadding="15dp"
             android:hint="@string/email" />
@@ -86,6 +85,8 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/platinum"
             android:drawableLeft="@drawable/baseline_password_24"
             android:drawablePadding="15dp"
             android:hint="@string/password"
@@ -111,13 +112,9 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/loginNow"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/buttonBack"
-        android:layout_width="215dp"
-        android:layout_height="wrap_content"
-        android:text="@string/back" />
 
 </LinearLayout>

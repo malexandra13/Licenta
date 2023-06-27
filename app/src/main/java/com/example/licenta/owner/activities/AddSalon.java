@@ -1,4 +1,4 @@
-package com.example.licenta.owner;
+package com.example.licenta.owner.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.licenta.R;
+import com.example.licenta.owner.MainOwnerActivity;
+import com.example.licenta.owner.others.SalonModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -32,6 +36,8 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
+
+import java.util.UUID;
 
 public class AddSalon extends AppCompatActivity {
 
@@ -62,7 +68,6 @@ public class AddSalon extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
 
-
         salonName = findViewById(R.id.salonName);
         salonCity = findViewById(R.id.salonCity);
         salonStreet = findViewById(R.id.salonStreet);
@@ -81,6 +86,13 @@ public class AddSalon extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         salonStateSpinner.setAdapter(adapter);
+
+
+        final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            final String accountId = currentUser.getUid();
+
+        }
 
         uploadImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +125,8 @@ public class AddSalon extends AppCompatActivity {
                                 SalonModel salonModel = new SalonModel();
                                 salonModel.setSalonImage(uri.toString());
 
+                                salonModel.setSalonId(UUID.randomUUID().toString());
+                                salonModel.setAccountId(currentUser.getUid());
                                 salonModel.setSalonName(salonName.getText().toString());
                                 salonModel.setSalonCity(salonCity.getText().toString());
                                 salonModel.setSalonState(salonStateSpinner.getSelectedItem().toString());
@@ -140,7 +154,6 @@ public class AddSalon extends AppCompatActivity {
                                                 progressDialog.dismiss();
                                             }
                                         });
-
                             }
                         });
                     }

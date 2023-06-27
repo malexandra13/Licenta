@@ -31,7 +31,6 @@ public class RegisterClient extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     ProgressBar progressBar;
     TextView textViewLogin;
-    Button buttonBack;
 
 
     @Override
@@ -49,16 +48,7 @@ public class RegisterClient extends AppCompatActivity {
         editTextLastName = findViewById(R.id.lastName);
         editTextFirstName = findViewById(R.id.firstName);
         editTextPhoneNumber = findViewById(R.id.phoneNumber);
-        buttonBack = findViewById(R.id.buttonBack);
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ChooseScreen.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
 
         textViewLogin.setOnClickListener(new View.OnClickListener() {
