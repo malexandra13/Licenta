@@ -68,17 +68,31 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(recyclerViewAdapter);
 
-        Button buttonBooking = view.findViewById(R.id.buttonBooking);
-        buttonBooking.setOnClickListener(new View.OnClickListener() {
+//        Button buttonBooking = view.findViewById(R.id.buttonBooking);
+//        buttonBooking.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                BookingFragment bookingFragment = new BookingFragment();
+//                FragmentManager fragmentManager = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.navHostFragment, bookingFragment);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
+//                fragmentChangedListener.onFragmentChanged("Booking Fragment");
+//            }
+//        });
+
+        Button buttonChooseService = view.findViewById(R.id.buttonBooking);
+        buttonChooseService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BookingFragment bookingFragment = new BookingFragment();
+                ChooseServiceFragment chooseServiceFragment = new ChooseServiceFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.navHostFragment, bookingFragment);
+                fragmentTransaction.replace(R.id.navHostFragment, chooseServiceFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-                fragmentChangedListener.onFragmentChanged("Booking Fragment");
+                fragmentChangedListener.onFragmentChanged("Choose Service Fragment");
             }
         });
 

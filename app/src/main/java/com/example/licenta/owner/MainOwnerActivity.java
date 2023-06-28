@@ -8,6 +8,7 @@ import android.util.Log;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.licenta.R;
@@ -37,10 +38,9 @@ public class MainOwnerActivity extends AppCompatActivity {
     FirebaseUser user;
     TextView greetingText;
     Button btnLogout;
-    Button btnAddEmployee;
-
-    Button btnAddSalon;
-    Button btnViewSalons;
+    LinearLayout btnAddEmployee;
+    LinearLayout btnAddSalon;
+    LinearLayout btnViewSalons;
 
 
     @Override

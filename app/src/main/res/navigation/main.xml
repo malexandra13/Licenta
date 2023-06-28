@@ -40,4 +40,9 @@
         android:name="com.example.licenta.client.fragments.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/chooseServiceFragment"
+        android:name="com.example.licenta.client.fragments.ChooseServiceFragment"
+        android:label="fragment_choose_service"
+        tools:layout="@layout/fragment_choose_service" />
 </navigation>

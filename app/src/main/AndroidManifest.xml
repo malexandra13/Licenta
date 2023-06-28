@@ -20,16 +20,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".SuccessfulPaymentActivity"
+            android:name=".client.ChooseServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".PaymentActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".client.payment.SuccessfulPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".client.payment.PaymentActivity"
+            android:exported="false" />
         <activity
             android:name=".ThirdScreen"
             android:exported="false" />
@@ -56,11 +54,12 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
-            android:exported="false">
-            <!--                        <intent-filter>-->
-            <!--                            <action android:name="android.intent.action.MAIN" />-->
-            <!--                            <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--                        </intent-filter>-->
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity> <!-- employee -->
         <activity
             android:name=".employee.MainEmployeeActivity"

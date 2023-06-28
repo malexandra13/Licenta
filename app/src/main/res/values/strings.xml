@@ -33,7 +33,7 @@
     <string name="employee_dashboard">Employee Dashboard</string>
     <string name="add_an_employee">Add an employee</string>
     <string name="createAccount">Create account</string>
-    <string name="add_salon">ADD A NEW SALON</string>
+    <string name="add_salon">Add a new salon</string>
     <string name="salonName">The name of the salon</string>
     <string name="salonAddress">Salon address</string>
     <string name="salonState">State</string>
@@ -109,5 +109,17 @@
         <item>Vâlcea</item>
         <item>Vrancea</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="make_up">Make Up</string>
+    <string name="hairstyle">Hairstyle</string>
+    <string name="nails">Nails</string>
+    <string name="eyebrow">Eyebrow styling</string>
+    <string name="hair_removal">Hair removal</string>
+    <string name="facialTreatments">Facial treatments</string>
+    <string name="address">Address</string>
+    <string name="description">Description</string>
+    <string name="view_statistics">View statistics</string>
+    <string name="thanks">Thank you for booking our services!</string>
 
 </resources>

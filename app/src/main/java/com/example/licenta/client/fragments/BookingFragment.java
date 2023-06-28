@@ -27,8 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookingFragment extends Fragment {
-
-
     RecyclerView recyclerView;
     ArrayList<SalonModel> recycleList;
     FirebaseDatabase database;
@@ -65,7 +63,7 @@ public class BookingFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Handle case when nothing is selected
+
             }
         });
 

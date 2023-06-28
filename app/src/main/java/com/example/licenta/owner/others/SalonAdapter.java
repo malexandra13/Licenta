@@ -50,12 +50,11 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
                 placeholder(R.drawable.upload_image).
                 into(holder.itemSalonImageView);
         holder.itemSalonName.setText(model.getSalonName());
-        holder.itemSalonCity.setText(model.getSalonCity());
+        holder.itemSalonCity.setText(model.getSalonCity()+", "+model.getSalonStreet());
         holder.itemSalonDescription.setText(model.getSalonDescription());
 
 
     }
-
 
     @Override
     public int getItemCount() {
