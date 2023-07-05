@@ -3,8 +3,11 @@ package com.example.licenta.owner.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,11 +29,16 @@ public class SalonDetails extends AppCompatActivity {
     private TextView salonPhoneTextView, salonEmailTextView;
     private TextView salonDescriptionTextView;
     private ImageView salonImageView;
+    private Button buttonAddServices;
+    private Button buttonAddEmployees;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salon_details);
+
+        buttonAddServices = findViewById(R.id.buttonAddService);
+        buttonAddEmployees = findViewById(R.id.buttonAddEmployee);
 
         salonNameTextView = findViewById(R.id.twNameSalon);
         salonStateTextView = findViewById(R.id.twSalonState);
@@ -44,42 +52,63 @@ public class SalonDetails extends AppCompatActivity {
 
         String salonId = getIntent().getStringExtra("salonId");
 
-        DatabaseReference salonRef = FirebaseDatabase.getInstance().getReference().child("salon").child(salonId);
+        buttonAddEmployees.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SalonDetails.this, AddEmployee.class);
+                intent.putExtra("salonId", salonId);
+                startActivity(intent);
+            }
+        });
+
+        buttonAddServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SalonDetails.this, AddServiceActivity.class);
+                intent.putExtra("salonId", salonId);
+                startActivity(intent);
+            }
+        });
+
+        DatabaseReference salonRef = FirebaseDatabase.getInstance().getReference().child("salon");
         salonRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.d("FirebaseData", "Snapshot: " + snapshot.toString());
                 if (snapshot.exists()) {
-                    SalonModel salonModel = snapshot.getValue(SalonModel.class);
-                    Log.d("FirebaseData", "Salon Model: " + salonModel.toString());
-                    if (salonModel != null) {
+                    for (DataSnapshot salonSnapshot : snapshot.getChildren()) {
+                        SalonModel salonModel = salonSnapshot.getValue(SalonModel.class);
+                        if (salonModel != null && salonModel.getSalonId().equals(salonId)) {
+                            salonNameTextView.setText(salonModel.getSalonName());
+                            salonStateTextView.setText(salonModel.getSalonState());
+                            salonCityTextView.setText(salonModel.getSalonCity());
+                            salonStreetTextView.setText(salonModel.getSalonStreet());
+                            salonPostalCodeTextView.setText(salonModel.getSalonPostalCode());
+                            salonPhoneTextView.setText(salonModel.getSalonPhone());
+                            salonEmailTextView.setText(salonModel.getSalonEmail());
+                            salonDescriptionTextView.setText(salonModel.getSalonDescription());
 
-                        salonNameTextView.setText(salonModel.getSalonName());
-                        salonStateTextView.setText(salonModel.getSalonState());
-                        salonCityTextView.setText(salonModel.getSalonCity());
-                        salonStreetTextView.setText(salonModel.getSalonStreet());
-                        salonPostalCodeTextView.setText(salonModel.getSalonPostalCode());
-                        salonPhoneTextView.setText(salonModel.getSalonPhone());
-                        salonEmailTextView.setText(salonModel.getSalonEmail());
-                        salonDescriptionTextView.setText(salonModel.getSalonDescription());
+                            RequestOptions requestOptions = new RequestOptions()
+                                    .placeholder(R.drawable.loading)
+                                    .error(R.drawable.error);
 
-                        // Load the salon image using Glide
-                        RequestOptions requestOptions = new RequestOptions()
-                                .placeholder(R.drawable.loading)
-                                .error(R.drawable.error);
+                            Glide.with(SalonDetails.this)
+                                    .load(salonModel.getSalonImage())
+                                    .apply(requestOptions)
+                                    .transition(DrawableTransitionOptions.withCrossFade())
+                                    .into(salonImageView);
 
-                        Glide.with(SalonDetails.this)
-                                .load(salonModel.getSalonImage())
-                                .apply(requestOptions)
-                                .transition(DrawableTransitionOptions.withCrossFade())
-                                .into(salonImageView);
+                            break;
+                        }
                     }
                 }
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+
     }
 }

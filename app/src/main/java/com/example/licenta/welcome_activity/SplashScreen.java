@@ -1,10 +1,12 @@
-package com.example.licenta;
+package com.example.licenta.welcome_activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.licenta.R;
 
 public class SplashScreen extends AppCompatActivity {
 

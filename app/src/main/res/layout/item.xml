@@ -6,8 +6,8 @@
 
     <androidx.cardview.widget.CardView
         cardCornerRadius="30dp"
-        android:layout_width="400dp"
-        android:layout_height="242dp"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
         android:elevation="5dp">
 
         <LinearLayout
@@ -26,7 +26,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="270dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -74,7 +74,7 @@
                     <TextView
                         android:id="@+id/twAddress"
                         android:layout_width="match_parent"
-                        android:layout_height="32dp"
+                        android:layout_height="39dp"
                         android:layout_marginTop="5dp"
                         android:maxLines="3"
                         android:text="@string/address"
@@ -82,12 +82,10 @@
 
                     <!--                    eventual aici pot sa adaug RatingBar-->
 
-<!--                    <RatingBar-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:numStars="5" />-->
-
-
+                    <!--                    <RatingBar-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:numStars="5" />-->
 
 
                 </LinearLayout>

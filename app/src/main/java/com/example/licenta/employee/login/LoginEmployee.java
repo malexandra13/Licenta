@@ -16,8 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.licenta.ChooseScreen;
-
 import com.example.licenta.R;
 import com.example.licenta.employee.MainEmployeeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;

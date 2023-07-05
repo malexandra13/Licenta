@@ -4,8 +4,18 @@
     android:id="@+id/containerBooking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".client.fragments.BookingFragment">
+    tools:context=".client.appoiment.BookingActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="651dp"
+        android:gravity="center"
+        android:text="@string/choose_the_county"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -21,6 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="70dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginEnd="20dp" />
 
 </FrameLayout>

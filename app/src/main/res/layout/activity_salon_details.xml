@@ -8,9 +8,9 @@
 
     <Button
         android:id="@+id/buttonAddService"
-        android:layout_width="wrap_content"
+        android:layout_width="108dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="230dp"
+        android:layout_marginStart="150dp"
         android:layout_marginTop="650dp"
         android:text="@string/add_service"
         tools:layout_editor_absoluteX="62dp"
@@ -18,13 +18,24 @@
 
     <Button
         android:id="@+id/buttonViewServices"
-        android:layout_width="wrap_content"
+        android:layout_width="108dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="650dp"
         android:text="@string/view_services"
         tools:layout_editor_absoluteX="231dp"
         tools:layout_editor_absoluteY="581dp" />
+
+    <Button
+        android:id="@+id/buttonAddEmployee"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="275dp"
+        android:layout_marginTop="650dp"
+        android:text="@string/add_employee"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="581dp" />
+
 
     <LinearLayout
         android:layout_width="405dp"
@@ -40,7 +51,8 @@
             android:layout_height="wrap_content"
             android:text="Name of the Salon"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textSize="20sp"/>
 
 
         <LinearLayout
@@ -199,9 +211,8 @@
             <TextView
                 android:id="@+id/twDescription"
                 android:layout_width="match_parent"
-                android:layout_height="34dp"
+                android:layout_height="159dp"
                 android:layout_marginTop="5dp"
-                android:maxLines="3"
                 android:text="@string/salonDescription"
                 android:textSize="16sp" />
 

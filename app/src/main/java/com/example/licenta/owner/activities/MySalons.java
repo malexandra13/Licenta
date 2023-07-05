@@ -93,7 +93,6 @@ public class MySalons extends AppCompatActivity implements SalonAdapter.OnItemCl
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         userSalonRef.child(userId).child(salonId).setValue(true);
 
-        // Start the new activity with the selected salon details
         Intent intent = new Intent(MySalons.this, SalonDetails.class);
         intent.putExtra("salonId", salonId);
         startActivity(intent);

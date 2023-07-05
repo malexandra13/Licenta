@@ -1,20 +1,21 @@
 package com.example.licenta.owner.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.licenta.ChooseScreen;
 import com.example.licenta.R;
-import com.example.licenta.client.others.User;
+import com.example.licenta.owner.others.Employee;
+import com.example.licenta.owner.others.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -29,7 +30,7 @@ public class AddEmployee extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseFirestore firebaseFirestore;
     ProgressBar progressBar;
-    TextView textViewLogin;
+    Spinner spinnerDepartment;
 
 
     @Override
@@ -46,6 +47,13 @@ public class AddEmployee extends AppCompatActivity {
         editTextLastName = findViewById(R.id.lastName);
         editTextFirstName = findViewById(R.id.firstName);
         editTextPhoneNumber = findViewById(R.id.phoneNumber);
+        spinnerDepartment = findViewById(R.id.spinner);
+        String salonId = getIntent().getStringExtra("salonId");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.spinner_items_department));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinnerDepartment.setAdapter(adapter);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +65,7 @@ public class AddEmployee extends AppCompatActivity {
                 String lastName = String.valueOf(editTextLastName.getText());
                 String firstName = String.valueOf(editTextFirstName.getText());
                 String phoneNumber = String.valueOf(editTextPhoneNumber.getText());
+                String department = spinnerDepartment.getSelectedItem().toString();
 
                 if (TextUtils.isEmpty(firstName)) {
                     editTextFirstName.setError("First name is required");
@@ -100,7 +109,7 @@ public class AddEmployee extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                     firebaseFirestore.collection("employee").
                                             document(mAuth.getCurrentUser().getUid()).
-                                            set(new User(userType, firstName, lastName, phoneNumber, email));
+                                            set(new Employee(userType, firstName, lastName, phoneNumber, email, salonId, spinnerDepartment.getSelectedItem().toString()));
                                 } else {
                                     Toast.makeText(AddEmployee.this, "Account already exist.",
                                             Toast.LENGTH_SHORT).show();

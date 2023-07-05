@@ -20,26 +20,52 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".client.ChooseServiceActivity"
+            android:name=".owner.activities.ViewAllEmployeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".owner.activities.AddServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".owner.activities.StatisticsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".client.appoiment.BookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".client.appoiment.ChooseServiceActivity"
             android:exported="false" />
         <activity
             android:name=".client.payment.SuccessfulPaymentActivity"
             android:exported="false" />
         <activity
             android:name=".client.payment.PaymentActivity"
+            android:exported="false">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".welcome_activity.ThirdScreen"
             android:exported="false" />
         <activity
-            android:name=".ThirdScreen"
+            android:name=".welcome_activity.SecondScreen"
             android:exported="false" />
         <activity
-            android:name=".SecondScreen"
+            android:name=".welcome_activity.FirstScreen"
             android:exported="false" />
         <activity
-            android:name=".FirstScreen"
-            android:exported="false" />
-        <activity
-            android:name=".ChooseScreen"
-            android:exported="false" />
+            android:name=".welcome_activity.ChooseScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".owner.activities.SalonDetails"
             android:exported="false" />
@@ -53,13 +79,15 @@
             android:name=".owner.activities.AddEmployee"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".welcome_activity.SplashScreen"
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity> <!-- employee -->
         <activity
             android:name=".employee.MainEmployeeActivity"

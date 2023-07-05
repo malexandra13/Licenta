@@ -1,4 +1,4 @@
-package com.example.licenta.client;
+package com.example.licenta.client.appoiment;
 
 import androidx.appcompat.app.AppCompatActivity;
 

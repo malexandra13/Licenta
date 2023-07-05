@@ -1,4 +1,4 @@
-package com.example.licenta.client.others;
+package com.example.licenta.owner.others;
 
 public class User {
     private String userType;

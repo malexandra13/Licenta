@@ -32,6 +32,7 @@
     <string name="salon_owner">Salon Owner Portal</string>
     <string name="employee_dashboard">Employee Dashboard</string>
     <string name="add_an_employee">Add an employee</string>
+    <string name="add_employee">Add employee</string>
     <string name="createAccount">Create account</string>
     <string name="add_salon">Add a new salon</string>
     <string name="salonName">The name of the salon</string>
@@ -47,7 +48,8 @@
     <string name="view_your_salons">View your salons</string>
     <string name="not_add_salon">You have not added any salon</string>
     <string name="view_services">View services</string>
-    <string name="add_service">Add a service</string>
+    <string name="add_a_service">Add a service</string>
+    <string name="add_service">Add service</string>
     <string name="salon_name">Salon name</string>
     <string name="skip">Skip</string>
     <string name="google">Google</string>
@@ -64,7 +66,7 @@
     <string name="payment_successful">Payment successful!</string>
     <string name="completed_your_payment">Hooray! You have completed your payment.</string>
     <string name="x">X</string>
-    <string-array name="spinner_items">
+    <string-array name="spinner_items_county">
         <item>Select a state</item>
         <item>Alba Iulia</item>
         <item>Arad</item>
@@ -121,5 +123,20 @@
     <string name="description">Description</string>
     <string name="view_statistics">View statistics</string>
     <string name="thanks">Thank you for booking our services!</string>
+    <string name="choose_the_county">Choose the county</string>
+    <string name="choose_your_service">Choose your service</string>
+    <string name="customers">The number of customers each month</string>
+    <string name="serviceName">Service name</string>
+    <string name="price">Price</string>
+    <string name="view_employee">View your employees</string>
+    <string-array name="spinner_items_department">
+        <item>Select a department</item>
+        <item>Make Up</item>
+        <item>Hairstyle</item>
+        <item>Nails</item>
+        <item>Eyebrow styling</item>
+        <item>Hair removal</item>
+        <item>Facial tratments</item>
+    </string-array>
 
 </resources>

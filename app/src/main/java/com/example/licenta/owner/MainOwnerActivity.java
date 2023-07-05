@@ -16,6 +16,8 @@ import com.example.licenta.R;
 import com.example.licenta.owner.activities.AddEmployee;
 import com.example.licenta.owner.activities.AddSalon;
 import com.example.licenta.owner.activities.MySalons;
+import com.example.licenta.owner.activities.StatisticsActivity;
+import com.example.licenta.owner.activities.ViewAllEmployeeActivity;
 import com.example.licenta.owner.login_register.LoginOwner;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -38,9 +40,10 @@ public class MainOwnerActivity extends AppCompatActivity {
     FirebaseUser user;
     TextView greetingText;
     Button btnLogout;
-    LinearLayout btnAddEmployee;
+    LinearLayout btnViewEmployee;
     LinearLayout btnAddSalon;
     LinearLayout btnViewSalons;
+    LinearLayout btnStatistics;
 
 
     @Override
@@ -53,9 +56,18 @@ public class MainOwnerActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.buttonLogout);
         greetingText = findViewById(R.id.greetingTextView);
-        btnAddEmployee = findViewById(R.id.buttonAddEmployee);
+        btnViewEmployee = findViewById(R.id.btnViewEmploye);
         btnAddSalon = findViewById(R.id.buttonAddSalon);
         btnViewSalons = findViewById(R.id.buttonViewSalons);
+        btnStatistics = findViewById(R.id.buttonViewAnalytics);
+
+        btnStatistics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainOwnerActivity.this, StatisticsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnViewSalons.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,10 +85,10 @@ public class MainOwnerActivity extends AppCompatActivity {
             }
         });
 
-        btnAddEmployee.setOnClickListener(new View.OnClickListener() {
+        btnViewEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainOwnerActivity.this, AddEmployee.class);
+                Intent intent = new Intent(MainOwnerActivity.this, ViewAllEmployeeActivity.class);
                 startActivity(intent);
             }
         });

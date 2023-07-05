@@ -1,6 +1,7 @@
 package com.example.licenta.client.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,6 +18,8 @@ import android.widget.Button;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.licenta.client.appoiment.BookingActivity;
+import com.example.licenta.client.appoiment.ChooseServiceActivity;
 import com.example.licenta.client.others.OnFragmentChangedListener;
 import com.example.licenta.client.others.RecyclerViewAdapter;
 import com.example.licenta.R;
@@ -68,33 +71,16 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(recyclerViewAdapter);
 
-//        Button buttonBooking = view.findViewById(R.id.buttonBooking);
-//        buttonBooking.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                BookingFragment bookingFragment = new BookingFragment();
-//                FragmentManager fragmentManager = getFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.navHostFragment, bookingFragment);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
-//                fragmentChangedListener.onFragmentChanged("Booking Fragment");
-//            }
-//        });
-
-        Button buttonChooseService = view.findViewById(R.id.buttonBooking);
-        buttonChooseService.setOnClickListener(new View.OnClickListener() {
+        Button buttonBooking = view.findViewById(R.id.buttonBooking);
+        buttonBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChooseServiceFragment chooseServiceFragment = new ChooseServiceFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.navHostFragment, chooseServiceFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                fragmentChangedListener.onFragmentChanged("Choose Service Fragment");
+                Intent intent = new Intent(getActivity(), BookingActivity.class);
+                startActivity(intent);
             }
         });
+
+
 
         Button buttonHistory = view.findViewById(R.id.buttonHistory);
         buttonHistory.setOnClickListener(new View.OnClickListener() {

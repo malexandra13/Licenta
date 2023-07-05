@@ -61,6 +61,11 @@ public class AddSalon extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
+        final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            final String accountId = currentUser.getUid();
+        }
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setMessage("Please wait...");
@@ -82,17 +87,12 @@ public class AddSalon extends AppCompatActivity {
 
         salonStateSpinner = findViewById(R.id.spinner);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.spinner_items));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.spinner_items_county));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         salonStateSpinner.setAdapter(adapter);
 
 
-        final FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser != null) {
-            final String accountId = currentUser.getUid();
-
-        }
 
         uploadImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,24 +107,19 @@ public class AddSalon extends AppCompatActivity {
         addSalonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 progressDialog.show();
-
                 final StorageReference reference = storage.getReference()
                         .child("salon")
                         .child(System.currentTimeMillis() + "");
-
                 reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
                         reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
 
                                 SalonModel salonModel = new SalonModel();
                                 salonModel.setSalonImage(uri.toString());
-
                                 salonModel.setSalonId(UUID.randomUUID().toString());
                                 salonModel.setAccountId(currentUser.getUid());
                                 salonModel.setSalonName(salonName.getText().toString());
@@ -143,13 +138,11 @@ public class AddSalon extends AppCompatActivity {
                                                 Toast.makeText(AddSalon.this, "Salon added successfully", Toast.LENGTH_LONG).show();
                                                 Intent intent = new Intent(AddSalon.this, MainOwnerActivity.class);
                                                 startActivity(intent);
-                                                finish();
                                                 progressDialog.dismiss();
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-
                                                 Toast.makeText(AddSalon.this, "Failed to add salon", Toast.LENGTH_LONG).show();
                                                 progressDialog.dismiss();
                                             }
@@ -167,14 +160,12 @@ public class AddSalon extends AppCompatActivity {
         Dexter.withContext(this)
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
-
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
                         Intent intent = new Intent();
                         intent.setType("image/*");
                         intent.setAction(Intent.ACTION_GET_CONTENT);
                         startActivityForResult(intent, 101);
-
                     }
 
                     @Override
@@ -182,7 +173,6 @@ public class AddSalon extends AppCompatActivity {
                         Toast.makeText(AddSalon.this, "Permission denied", Toast.LENGTH_LONG).show();
 
                     }
-
                     @Override
                     public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
                         permissionToken.continuePermissionRequest();

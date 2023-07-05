@@ -1,13 +1,13 @@
-package com.example.licenta;
+package com.example.licenta.welcome_activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.example.licenta.R;
 import com.example.licenta.client.login_register.LoginClient;
 import com.example.licenta.employee.login.LoginEmployee;
 import com.example.licenta.owner.login_register.LoginOwner;
