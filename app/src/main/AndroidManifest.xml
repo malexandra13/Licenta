@@ -20,6 +20,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".owner.activities.ViewServicesActivity"
+            android:exported="false" />
+        <activity
             android:name=".owner.activities.ViewAllEmployeeActivity"
             android:exported="false" />
         <activity

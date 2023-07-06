@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.licenta.R;
 import com.example.licenta.owner.others.SalonAdapter;
-import com.example.licenta.owner.others.SalonModel;
+import com.example.licenta.owner.others.Salon;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +29,7 @@ public class MySalons extends AppCompatActivity implements SalonAdapter.OnItemCl
 
     private RecyclerView recyclerView;
     private SalonAdapter adapter;
-    private List<SalonModel> salonList;
+    private List<Salon> salonList;
     private DatabaseReference salonRef;
     TextView emptyMessageTextView;
 
@@ -64,8 +64,8 @@ public class MySalons extends AppCompatActivity implements SalonAdapter.OnItemCl
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                        SalonModel salonModel = dataSnapshot.getValue(SalonModel.class);
-                        salonList.add(salonModel);
+                        Salon salon = dataSnapshot.getValue(Salon.class);
+                        salonList.add(salon);
                     }
                     adapter.notifyDataSetChanged();
 

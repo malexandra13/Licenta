@@ -1,8 +1,6 @@
 package com.example.licenta.owner.others;
 
-import java.util.UUID;
-
-public class SalonModel {
+public class Salon {
     private String salonId;
     private String accountId;
     private String salonName;
@@ -11,10 +9,10 @@ public class SalonModel {
     private String salonDescription;
     private String salonImage;
 
-    public SalonModel() {
+    public Salon() {
     }
 
-    public SalonModel(String salonId, String accountId, String salonName, String salonState, String salonCity, String salonStreet, String salonPostalCode, String salonPhone, String salonEmail, String salonDescription, String salonImage) {
+    public Salon(String salonId, String accountId, String salonName, String salonState, String salonCity, String salonStreet, String salonPostalCode, String salonPhone, String salonEmail, String salonDescription, String salonImage) {
         this.salonId = salonId;
         this.accountId = accountId;
         this.salonName = salonName;

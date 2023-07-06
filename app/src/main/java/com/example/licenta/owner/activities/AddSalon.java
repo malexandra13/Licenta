@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.example.licenta.R;
 import com.example.licenta.owner.MainOwnerActivity;
-import com.example.licenta.owner.others.SalonModel;
+import com.example.licenta.owner.others.Salon;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -118,21 +118,21 @@ public class AddSalon extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
 
-                                SalonModel salonModel = new SalonModel();
-                                salonModel.setSalonImage(uri.toString());
-                                salonModel.setSalonId(UUID.randomUUID().toString());
-                                salonModel.setAccountId(currentUser.getUid());
-                                salonModel.setSalonName(salonName.getText().toString());
-                                salonModel.setSalonCity(salonCity.getText().toString());
-                                salonModel.setSalonState(salonStateSpinner.getSelectedItem().toString());
-                                salonModel.setSalonStreet(salonStreet.getText().toString());
-                                salonModel.setSalonPostalCode(salonPostalCode.getText().toString());
-                                salonModel.setSalonPhone(salonPhone.getText().toString());
-                                salonModel.setSalonEmail(salonEmail.getText().toString());
-                                salonModel.setSalonDescription(salonDescription.getText().toString());
+                                Salon salon = new Salon();
+                                salon.setSalonImage(uri.toString());
+                                salon.setSalonId(UUID.randomUUID().toString());
+                                salon.setAccountId(currentUser.getUid());
+                                salon.setSalonName(salonName.getText().toString());
+                                salon.setSalonCity(salonCity.getText().toString());
+                                salon.setSalonState(salonStateSpinner.getSelectedItem().toString());
+                                salon.setSalonStreet(salonStreet.getText().toString());
+                                salon.setSalonPostalCode(salonPostalCode.getText().toString());
+                                salon.setSalonPhone(salonPhone.getText().toString());
+                                salon.setSalonEmail(salonEmail.getText().toString());
+                                salon.setSalonDescription(salonDescription.getText().toString());
 
                                 database.getReference().child("salon").push()
-                                        .setValue(salonModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        .setValue(salon).addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 Toast.makeText(AddSalon.this, "Salon added successfully", Toast.LENGTH_LONG).show();

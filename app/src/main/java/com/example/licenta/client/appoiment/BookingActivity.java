@@ -14,7 +14,7 @@ import android.widget.Spinner;
 
 import com.example.licenta.R;
 import com.example.licenta.owner.others.SalonAdapter;
-import com.example.licenta.owner.others.SalonModel;
+import com.example.licenta.owner.others.Salon;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,7 +26,7 @@ import java.util.List;
 public class BookingActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<SalonModel> recycleList;
+    ArrayList<Salon> recycleList;
     FirebaseDatabase database;
     Spinner spinnerCountries;
 
@@ -55,7 +55,7 @@ public class BookingActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedCountry = parent.getItemAtPosition(position).toString();
-                List<SalonModel> filteredSalons = filterSalonsByCountry(selectedCountry);
+                List<Salon> filteredSalons = filterSalonsByCountry(selectedCountry);
                 SalonAdapter adapter = new SalonAdapter(filteredSalons, getApplicationContext());
                 recyclerView.setAdapter(adapter);
             }
@@ -70,8 +70,8 @@ public class BookingActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                            SalonModel salonModel = dataSnapshot.getValue(SalonModel.class);
-                            recycleList.add(salonModel);
+                            Salon salon = dataSnapshot.getValue(Salon.class);
+                            recycleList.add(salon);
                         }
                         recycleAdapter.notifyDataSetChanged();
                     }
@@ -82,9 +82,9 @@ public class BookingActivity extends AppCompatActivity {
                 });
     }
 
-    private List<SalonModel> filterSalonsByCountry(String state) {
-        List<SalonModel> filteredSalons = new ArrayList<>();
-        for (SalonModel salon : recycleList) {
+    private List<Salon> filterSalonsByCountry(String state) {
+        List<Salon> filteredSalons = new ArrayList<>();
+        for (Salon salon : recycleList) {
             if (salon.getSalonState().equals(state)) {
                 filteredSalons.add(salon);
             }

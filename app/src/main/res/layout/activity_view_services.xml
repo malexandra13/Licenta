@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".owner.activities.ViewAllEmployeeActivity">
+    tools:context=".owner.activities.ViewServicesActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,21 +16,21 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            android:text="@string/view_employee"
+            android:text="@string/services"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/noEmployee"
+            android:id="@+id/noServices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
             android:gravity="center"
-            android:text="@string/no_employee"
+            android:text="@string/no_services"
             android:textSize="30sp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewEmployee"
+            android:id="@+id/recyclerViewServices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"

@@ -17,12 +17,12 @@ import java.util.List;
 
 public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> {
 
-    List<SalonModel> list;
+    List<Salon> list;
     Context context;
     private OnItemClickListener onItemClickListener;
 
 
-    public SalonAdapter(List<SalonModel> list, Context context) {
+    public SalonAdapter(List<Salon> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -38,14 +38,14 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_salon_details, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        SalonModel model = list.get(position);
+        Salon model = list.get(position);
         Picasso.get().load(model.getSalonImage()).
                 placeholder(R.drawable.upload_image).
                 into(holder.itemSalonImageView);

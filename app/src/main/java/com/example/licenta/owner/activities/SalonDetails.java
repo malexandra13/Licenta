@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.licenta.R;
-import com.example.licenta.owner.others.SalonModel;
+import com.example.licenta.owner.others.Salon;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +31,7 @@ public class SalonDetails extends AppCompatActivity {
     private ImageView salonImageView;
     private Button buttonAddServices;
     private Button buttonAddEmployees;
+    private Button buttonViewServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class SalonDetails extends AppCompatActivity {
 
         buttonAddServices = findViewById(R.id.buttonAddService);
         buttonAddEmployees = findViewById(R.id.buttonAddEmployee);
+        buttonViewServices = findViewById(R.id.buttonViewServices);
 
         salonNameTextView = findViewById(R.id.twNameSalon);
         salonStateTextView = findViewById(R.id.twSalonState);
@@ -51,6 +53,15 @@ public class SalonDetails extends AppCompatActivity {
         salonImageView = findViewById(R.id.imageViewSalon);
 
         String salonId = getIntent().getStringExtra("salonId");
+
+        buttonViewServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SalonDetails.this, ViewServicesActivity.class);
+                intent.putExtra("salonId", salonId);
+                startActivity(intent);
+            }
+        });
 
         buttonAddEmployees.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,23 +88,23 @@ public class SalonDetails extends AppCompatActivity {
                 Log.d("FirebaseData", "Snapshot: " + snapshot.toString());
                 if (snapshot.exists()) {
                     for (DataSnapshot salonSnapshot : snapshot.getChildren()) {
-                        SalonModel salonModel = salonSnapshot.getValue(SalonModel.class);
-                        if (salonModel != null && salonModel.getSalonId().equals(salonId)) {
-                            salonNameTextView.setText(salonModel.getSalonName());
-                            salonStateTextView.setText(salonModel.getSalonState());
-                            salonCityTextView.setText(salonModel.getSalonCity());
-                            salonStreetTextView.setText(salonModel.getSalonStreet());
-                            salonPostalCodeTextView.setText(salonModel.getSalonPostalCode());
-                            salonPhoneTextView.setText(salonModel.getSalonPhone());
-                            salonEmailTextView.setText(salonModel.getSalonEmail());
-                            salonDescriptionTextView.setText(salonModel.getSalonDescription());
+                        Salon salon = salonSnapshot.getValue(Salon.class);
+                        if (salon != null && salon.getSalonId().equals(salonId)) {
+                            salonNameTextView.setText(salon.getSalonName());
+                            salonStateTextView.setText(salon.getSalonState());
+                            salonCityTextView.setText(salon.getSalonCity());
+                            salonStreetTextView.setText(salon.getSalonStreet());
+                            salonPostalCodeTextView.setText(salon.getSalonPostalCode());
+                            salonPhoneTextView.setText(salon.getSalonPhone());
+                            salonEmailTextView.setText(salon.getSalonEmail());
+                            salonDescriptionTextView.setText(salon.getSalonDescription());
 
                             RequestOptions requestOptions = new RequestOptions()
                                     .placeholder(R.drawable.loading)
                                     .error(R.drawable.error);
 
                             Glide.with(SalonDetails.this)
-                                    .load(salonModel.getSalonImage())
+                                    .load(salon.getSalonImage())
                                     .apply(requestOptions)
                                     .transition(DrawableTransitionOptions.withCrossFade())
                                     .into(salonImageView);

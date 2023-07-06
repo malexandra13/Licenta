@@ -66,6 +66,7 @@ public class AddEmployee extends AppCompatActivity {
                 String firstName = String.valueOf(editTextFirstName.getText());
                 String phoneNumber = String.valueOf(editTextPhoneNumber.getText());
                 String department = spinnerDepartment.getSelectedItem().toString();
+                String ownerId = mAuth.getCurrentUser().getUid();
 
                 if (TextUtils.isEmpty(firstName)) {
                     editTextFirstName.setError("First name is required");
@@ -109,7 +110,7 @@ public class AddEmployee extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                     firebaseFirestore.collection("employee").
                                             document(mAuth.getCurrentUser().getUid()).
-                                            set(new Employee(userType, firstName, lastName, phoneNumber, email, salonId, spinnerDepartment.getSelectedItem().toString()));
+                                            set(new Employee(userType, ownerId, firstName, lastName, phoneNumber, email, salonId, department));
                                 } else {
                                     Toast.makeText(AddEmployee.this, "Account already exist.",
                                             Toast.LENGTH_SHORT).show();

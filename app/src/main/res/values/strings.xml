@@ -129,6 +129,12 @@
     <string name="serviceName">Service name</string>
     <string name="price">Price</string>
     <string name="view_employee">View your employees</string>
+    <string name="department">Department:</string>
+    <string name="name">Name:</string>
+    <string name="no_employee">You don\'t have employee</string>
+    <string name="employee_no">Employee No.</string>
+    <string name="services">Services</string>
+    <string name="no_services">You have not added any service yet</string>
     <string-array name="spinner_items_department">
         <item>Select a department</item>
         <item>Make Up</item>
