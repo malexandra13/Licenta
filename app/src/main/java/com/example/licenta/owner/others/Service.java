@@ -1,6 +1,7 @@
 package com.example.licenta.owner.others;
 
 public class Service {
+    private String salonId;
     private String serviceName;
     private String servicePrice;
     private String serviceDepartment;
@@ -9,11 +10,20 @@ public class Service {
     public Service() {
     }
 
-    public Service(String serviceName, String servicePrice, String serviceDepartment, String serviceDescription) {
+    public Service(String salonId, String serviceName, String servicePrice, String serviceDepartment, String serviceDescription) {
+        this.salonId = salonId;
         this.serviceName = serviceName;
         this.servicePrice = servicePrice;
         this.serviceDepartment = serviceDepartment;
         this.serviceDescription = serviceDescription;
+    }
+
+    public String getSalonId() {
+        return salonId;
+    }
+
+    public void setSalonId(String salonId) {
+        this.salonId = salonId;
     }
 
     public String getServiceName() {

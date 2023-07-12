@@ -4,36 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".owner.activities.SalonDetails">
-
-    <Button
-        android:id="@+id/buttonAddService"
-        android:layout_width="108dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="650dp"
-        android:text="@string/add_service"
-        tools:layout_editor_absoluteX="62dp"
-        tools:layout_editor_absoluteY="581dp" />
+    tools:context=".client.appoiment.ClientSalonDetailsActivity">
 
     <Button
         android:id="@+id/buttonViewServices"
-        android:layout_width="108dp"
+        android:layout_width="266dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="650dp"
+        android:gravity="center"
         android:text="@string/view_services"
         tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="581dp" />
-
-    <Button
-        android:id="@+id/buttonAddEmployee"
-        android:layout_width="113dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="275dp"
-        android:layout_marginTop="650dp"
-        android:text="@string/add_employee"
-        tools:layout_editor_absoluteX="62dp"
         tools:layout_editor_absoluteY="581dp" />
 
 
@@ -51,8 +32,8 @@
             android:layout_height="wrap_content"
             android:text="Name of the Salon"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
         <LinearLayout
@@ -219,79 +200,5 @@
 
         </LinearLayout>
     </LinearLayout>
-
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/twStateSalon"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="30dp"-->
-    <!--        android:layout_marginTop="145dp"-->
-    <!--        android:text="orice, numa sa fie" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView5"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="25dp"-->
-    <!--        android:layout_marginTop="120dp"-->
-    <!--        android:text="@string/salonState"-->
-    <!--        android:textSize="17sp"-->
-    <!--        android:textStyle="bold" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/twCitySalon"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="30dp"-->
-    <!--        android:layout_marginTop="195dp"-->
-    <!--        android:text="orice, numa sa fie" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView6"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="25dp"-->
-    <!--        android:layout_marginTop="170dp"-->
-    <!--        android:text="@string/salonCity"-->
-    <!--        android:textSize="17sp"-->
-    <!--        android:textStyle="bold" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/twStreetSalon"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="30dp"-->
-    <!--        android:layout_marginTop="245dp"-->
-    <!--        android:text="orice, numa sa fie" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView7"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="25dp"-->
-    <!--        android:layout_marginTop="220dp"-->
-    <!--        android:text="@string/salonStreet"-->
-    <!--        android:textSize="17sp"-->
-    <!--        android:textStyle="bold" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/twPostalCode"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="30dp"-->
-    <!--        android:layout_marginTop="295dp"-->
-    <!--        android:text="orice, numa sa fie" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView8"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="25dp"-->
-    <!--        android:layout_marginTop="270dp"-->
-    <!--        android:text="@string/salonPostalCode"-->
-    <!--        android:textSize="17sp"-->
-    <!--        android:textStyle="bold" />-->
-
 
 </RelativeLayout>

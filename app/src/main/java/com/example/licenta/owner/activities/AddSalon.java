@@ -124,7 +124,7 @@ public class AddSalon extends AppCompatActivity {
                                 salon.setAccountId(currentUser.getUid());
                                 salon.setSalonName(salonName.getText().toString());
                                 salon.setSalonCity(salonCity.getText().toString());
-                                salon.setSalonState(salonStateSpinner.getSelectedItem().toString());
+                                salon.setSalonCounty(salonStateSpinner.getSelectedItem().toString());
                                 salon.setSalonStreet(salonStreet.getText().toString());
                                 salon.setSalonPostalCode(salonPostalCode.getText().toString());
                                 salon.setSalonPhone(salonPhone.getText().toString());

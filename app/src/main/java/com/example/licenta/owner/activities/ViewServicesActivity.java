@@ -2,6 +2,7 @@ package com.example.licenta.owner.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,6 +39,8 @@ public class ViewServicesActivity extends AppCompatActivity {
 
         serviceAdapter = new ServiceAdapter();
         recyclerView.setAdapter(serviceAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         databaseReference = FirebaseDatabase.getInstance().getReference("services");
 

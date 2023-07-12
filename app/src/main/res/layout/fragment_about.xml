@@ -7,10 +7,53 @@
     tools:context=".client.fragments.AboutFragment">
 
     <TextView
-        android:layout_width="125dp"
-        android:layout_height="92dp"
-        android:layout_gravity="center"
-        android:text="About Fragment"
-        android:textSize="20sp" />
+        android:layout_width="322dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:text="@string/beauty_app"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="371dp"
+        android:layout_height="294dp"
+        android:src="@drawable/about"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="40dp"
+        android:textSize="20sp"
+        android:text="@string/version"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/version_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:textColor="@color/black"
+        android:layout_marginStart="120dp"
+        android:textSize="20sp"
+        android:text="@string/version"/>
+
+
+
+    <TextView
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="420dp"
+        android:text="@string/about"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        android:gravity="center"/>
+
 
 </FrameLayout>

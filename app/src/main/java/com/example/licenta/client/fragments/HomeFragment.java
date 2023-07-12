@@ -18,8 +18,7 @@ import android.widget.Button;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.licenta.client.appoiment.BookingActivity;
-import com.example.licenta.client.appoiment.ChooseServiceActivity;
+import com.example.licenta.client.appoiment.ChooseDepartmentActivity;
 import com.example.licenta.client.others.OnFragmentChangedListener;
 import com.example.licenta.client.others.RecyclerViewAdapter;
 import com.example.licenta.R;
@@ -75,7 +74,7 @@ public class HomeFragment extends Fragment {
         buttonBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BookingActivity.class);
+                Intent intent = new Intent(getActivity(), ChooseDepartmentActivity.class);
                 startActivity(intent);
             }
         });

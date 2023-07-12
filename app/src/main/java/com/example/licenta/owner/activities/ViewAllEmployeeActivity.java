@@ -2,6 +2,7 @@ package com.example.licenta.owner.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,6 +45,8 @@ public class ViewAllEmployeeActivity extends AppCompatActivity {
         textNoEmployees = findViewById(R.id.noEmployee);
         recyclerView = findViewById(R.id.recyclerViewEmployee);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
 
         db = FirebaseFirestore.getInstance();
 

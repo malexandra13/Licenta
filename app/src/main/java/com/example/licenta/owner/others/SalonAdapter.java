@@ -31,6 +31,8 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
         void onItemClick(String salonId);
     }
 
+
+
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.onItemClickListener = listener;
     }
@@ -87,3 +89,4 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
         }
     }
 }
+

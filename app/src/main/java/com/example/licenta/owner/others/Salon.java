@@ -4,7 +4,7 @@ public class Salon {
     private String salonId;
     private String accountId;
     private String salonName;
-    private String salonState, salonCity, salonStreet, salonPostalCode;
+    private String salonCounty, salonCity, salonStreet, salonPostalCode;
     private String salonPhone, salonEmail;
     private String salonDescription;
     private String salonImage;
@@ -12,11 +12,11 @@ public class Salon {
     public Salon() {
     }
 
-    public Salon(String salonId, String accountId, String salonName, String salonState, String salonCity, String salonStreet, String salonPostalCode, String salonPhone, String salonEmail, String salonDescription, String salonImage) {
+    public Salon(String salonId, String accountId, String salonName, String salonCounty, String salonCity, String salonStreet, String salonPostalCode, String salonPhone, String salonEmail, String salonDescription, String salonImage) {
         this.salonId = salonId;
         this.accountId = accountId;
         this.salonName = salonName;
-        this.salonState = salonState;
+        this.salonCounty = salonCounty;
         this.salonCity = salonCity;
         this.salonStreet = salonStreet;
         this.salonPostalCode = salonPostalCode;
@@ -50,12 +50,12 @@ public class Salon {
         this.salonName = salonName;
     }
 
-    public String getSalonState() {
-        return salonState;
+    public String getSalonCounty() {
+        return salonCounty;
     }
 
-    public void setSalonState(String salonState) {
-        this.salonState = salonState;
+    public void setSalonCounty(String salonState) {
+        this.salonCounty = salonCounty;
     }
 
     public String getSalonCity() {
@@ -104,6 +104,23 @@ public class Salon {
 
     public void setSalonDescription(String salonDescription) {
         this.salonDescription = salonDescription;
+    }
+
+    @Override
+    public String toString() {
+        return "Salon{" +
+                "salonId='" + salonId + '\'' +
+                ", accountId='" + accountId + '\'' +
+                ", salonName='" + salonName + '\'' +
+                ", salonState='" + salonCounty + '\'' +
+                ", salonCity='" + salonCity + '\'' +
+                ", salonStreet='" + salonStreet + '\'' +
+                ", salonPostalCode='" + salonPostalCode + '\'' +
+                ", salonPhone='" + salonPhone + '\'' +
+                ", salonEmail='" + salonEmail + '\'' +
+                ", salonDescription='" + salonDescription + '\'' +
+                ", salonImage='" + salonImage + '\'' +
+                '}';
     }
 
     public String getSalonImage() {

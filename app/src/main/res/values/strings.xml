@@ -23,6 +23,7 @@
     <string name="inspiration">Today\'s inspiration</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
+    <string name="my_profile">My profile</string>
     <string name="inbox">Inbox</string>
     <string name="about_us">About Us</string>
     <string name="settings">Settings</string>
@@ -67,7 +68,7 @@
     <string name="completed_your_payment">Hooray! You have completed your payment.</string>
     <string name="x">X</string>
     <string-array name="spinner_items_county">
-        <item>Select a state</item>
+        <item>Select a county</item>
         <item>Alba Iulia</item>
         <item>Arad</item>
         <item>Argeș</item>
@@ -111,8 +112,6 @@
         <item>Vâlcea</item>
         <item>Vrancea</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="make_up">Make Up</string>
     <string name="hairstyle">Hairstyle</string>
     <string name="nails">Nails</string>
@@ -135,6 +134,10 @@
     <string name="employee_no">Employee No.</string>
     <string name="services">Services</string>
     <string name="no_services">You have not added any service yet</string>
+    <string name="beauty_app">Beauty Salon App</string>
+    <string name="version">Version:</string>
+    <string name="about">The Beauty Salon App is a mobile application designed to enhance the experience of beauty and wellness enthusiasts. Whether you are looking to book appointments, discover new treatments, or stay updated with the latest beauty trends, this app is your one-stop solution.</string>
+    <string name="version_format">v1.0</string>
     <string-array name="spinner_items_department">
         <item>Select a department</item>
         <item>Make Up</item>
@@ -142,7 +145,8 @@
         <item>Nails</item>
         <item>Eyebrow styling</item>
         <item>Hair removal</item>
-        <item>Facial tratments</item>
+        <item>Facial treatments</item>
     </string-array>
+
 
 </resources>

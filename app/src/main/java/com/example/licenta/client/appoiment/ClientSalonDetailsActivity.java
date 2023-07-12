@@ -1,4 +1,4 @@
-package com.example.licenta.owner.activities;
+package com.example.licenta.client.appoiment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class SalonDetails extends AppCompatActivity {
+public class ClientSalonDetailsActivity extends AppCompatActivity {
 
     private TextView salonNameTextView;
     private TextView salonStateTextView, salonCityTextView, salonStreetTextView, salonPostalCodeTextView;
@@ -36,10 +36,8 @@ public class SalonDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_salon_details);
+        setContentView(R.layout.activity_salon_details_client);
 
-        buttonAddServices = findViewById(R.id.buttonAddService);
-        buttonAddEmployees = findViewById(R.id.buttonAddEmployee);
         buttonViewServices = findViewById(R.id.buttonViewServices);
 
         salonNameTextView = findViewById(R.id.twNameSalon);
@@ -57,29 +55,12 @@ public class SalonDetails extends AppCompatActivity {
         buttonViewServices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SalonDetails.this, ViewServicesActivity.class);
+                Intent intent = new Intent(ClientSalonDetailsActivity.this, ChooseServiceActivity.class);
                 intent.putExtra("salonId", salonId);
                 startActivity(intent);
             }
         });
 
-        buttonAddEmployees.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SalonDetails.this, AddEmployee.class);
-                intent.putExtra("salonId", salonId);
-                startActivity(intent);
-            }
-        });
-
-        buttonAddServices.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SalonDetails.this, AddServiceActivity.class);
-                intent.putExtra("salonId", salonId);
-                startActivity(intent);
-            }
-        });
 
         DatabaseReference salonRef = FirebaseDatabase.getInstance().getReference().child("salon");
         salonRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -103,7 +84,7 @@ public class SalonDetails extends AppCompatActivity {
                                     .placeholder(R.drawable.loading)
                                     .error(R.drawable.error);
 
-                            Glide.with(SalonDetails.this)
+                            Glide.with(ClientSalonDetailsActivity.this)
                                     .load(salon.getSalonImage())
                                     .apply(requestOptions)
                                     .transition(DrawableTransitionOptions.withCrossFade())
