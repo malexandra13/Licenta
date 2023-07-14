@@ -1,6 +1,7 @@
 package com.example.licenta.owner.others;
 
 public class Employee {
+    private String employeeId;
     private String userType;
     private String ownerId;
     private String firstName;
@@ -10,11 +11,14 @@ public class Employee {
     private String salonId;
     private String department;
     private Salon salon;
+    private String nivelPregatire;
 
     public Employee() {
     }
 
-    public Employee(String userType, String ownerId, String firstName, String lastName, String phoneNumber, String email, String salonId, String department) {
+    public Employee(String employeeId, String userType, String ownerId, String firstName, String lastName, String phoneNumber,
+                    String email, String salonId, String department, String nivelPregatire) {
+        this.employeeId = employeeId;
         this.userType = userType;
         this.ownerId = ownerId;
         this.firstName = firstName;
@@ -23,6 +27,15 @@ public class Employee {
         this.email = email;
         this.salonId = salonId;
         this.department = department;
+        this.nivelPregatire = nivelPregatire;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
     public Salon getSalon() {
@@ -95,5 +108,13 @@ public class Employee {
 
     public void setSalonId(String salonId) {
         this.salonId = salonId;
+    }
+
+    public String getNivelPregatire() {
+        return nivelPregatire;
+    }
+
+    public void setNivelPregatire(String nivelPregatire) {
+        this.nivelPregatire = nivelPregatire;
     }
 }

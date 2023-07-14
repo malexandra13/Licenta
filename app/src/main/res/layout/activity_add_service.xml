@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,16 +16,15 @@
         tools:context=".owner.activities.AddSalon">
 
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="@string/add_a_service"
+            android:textColor="@color/black"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -39,10 +38,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/serviceName"
-                android:background="@color/platinum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
                 android:drawableStart="@drawable/design_services"
                 android:drawablePadding="15dp"
                 android:hint="@string/serviceName" />
@@ -55,8 +54,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:background="@color/platinum"
-            android:paddingStart="45dp"
-            />
+            android:paddingStart="45dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -67,12 +65,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
                 android:drawableStart="@drawable/money"
                 android:drawablePadding="15dp"
                 android:hint="@string/price"
-                android:inputType="number"
-                android:background="@color/platinum"/>
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
+
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -84,10 +83,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
                 android:drawableLeft="@drawable/baseline_description_24"
                 android:drawablePadding="15dp"
-                android:hint="@string/salonDescription"
-                android:background="@color/platinum"/>
+                android:hint="@string/salonDescription" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -97,20 +96,6 @@
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
-        <RelativeLayout
-            android:id="@+id/relative"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone">
-
-            <ImageView
-                android:id="@+id/salonImage"
-                android:layout_width="352dp"
-                android:layout_height="160dp" />
-
-
-        </RelativeLayout>
-
         <Button
             android:id="@+id/addService"
             android:layout_width="wrap_content"
@@ -118,4 +103,4 @@
             android:text="@string/add_service" />
 
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>

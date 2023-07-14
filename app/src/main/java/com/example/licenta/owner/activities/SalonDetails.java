@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 public class SalonDetails extends AppCompatActivity {
 
     private TextView salonNameTextView;
-    private TextView salonStateTextView, salonCityTextView, salonStreetTextView, salonPostalCodeTextView;
+    private TextView salonCountyTextView, salonCityTextView, salonStreetTextView, salonPostalCodeTextView;
     private TextView salonPhoneTextView, salonEmailTextView;
     private TextView salonDescriptionTextView;
     private ImageView salonImageView;
@@ -43,7 +43,7 @@ public class SalonDetails extends AppCompatActivity {
         buttonViewServices = findViewById(R.id.buttonViewServices);
 
         salonNameTextView = findViewById(R.id.twNameSalon);
-        salonStateTextView = findViewById(R.id.twSalonCounty);
+        salonCountyTextView = findViewById(R.id.twSalonCounty);
         salonCityTextView = findViewById(R.id.twSalonCity);
         salonStreetTextView = findViewById(R.id.twSalonStreet);
         salonPostalCodeTextView = findViewById(R.id.twPostalCode);
@@ -91,7 +91,7 @@ public class SalonDetails extends AppCompatActivity {
                         Salon salon = salonSnapshot.getValue(Salon.class);
                         if (salon != null && salon.getSalonId().equals(salonId)) {
                             salonNameTextView.setText(salon.getSalonName());
-                            salonStateTextView.setText(salon.getSalonCounty());
+                            salonCountyTextView.setText(salon.getSalonCounty());
                             salonCityTextView.setText(salon.getSalonCity());
                             salonStreetTextView.setText(salon.getSalonStreet());
                             salonPostalCodeTextView.setText(salon.getSalonPostalCode());

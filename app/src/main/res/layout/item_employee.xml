@@ -1,40 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/employee_no"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/employee_no"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
         android:text="@string/name"
         android:textColor="@color/black"
-        android:textSize="16sp"
+
         android:textStyle="bold" />
 
     <TextView
@@ -42,19 +22,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
         android:text="@string/name"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textColor="@color/black"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
         android:text="@string/phoneNumber"
         android:textColor="@color/black"
-        android:textSize="16sp"
         android:textStyle="bold" />
 
     <TextView
@@ -62,19 +42,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="130dp"
-        android:text="@string/phoneNumber"
+        android:text="@string/phoneNumber_"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:layout_marginTop="5dp"
+        android:textSize="18sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:text="@string/nivel_pregatire"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvNivelPregatire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:text="@string/nivel_pregatire"
+        android:textColor="@color/black" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:text="@string/department"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -82,30 +83,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
         android:text="@string/department"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
         android:text="@string/salonName"
         android:textColor="@color/black"
-        android:textSize="16sp"
         android:textStyle="bold" />
 
     <TextView
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
         android:id="@+id/tvSalonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="250dp"
         android:text="@string/salonName"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textColor="@color/black" />
 
 
-</RelativeLayout>
+</LinearLayout>

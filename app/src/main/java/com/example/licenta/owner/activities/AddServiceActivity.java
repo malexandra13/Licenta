@@ -61,7 +61,7 @@ public class AddServiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 progressDialog.show();
 
-                // Get the values from the input fields
+                String serviceId = servicesReference.push().getKey();
                 String serviceName = textServiceName.getText().toString();
                 String servicePrice = textServicePrice.getText().toString();
                 String serviceDepartment = spinnerDepartment.getSelectedItem().toString();
@@ -69,20 +69,22 @@ public class AddServiceActivity extends AppCompatActivity {
 
                 // Validate the input fields
                 if (TextUtils.isEmpty(serviceName)) {
-                    textServiceName.setError("Service name is required");
+                    textServiceName.setError("Numele serviciului este obligatoriu");
                     progressDialog.dismiss();
                     return;
                 }
 
                 if (TextUtils.isEmpty(servicePrice)) {
-                    textServicePrice.setError("Price is required");
+                    textServicePrice.setError("Pretul este obligatoriu");
                     progressDialog.dismiss();
                     return;
                 }
 
+
                 DatabaseReference newServiceRef = servicesReference.push();
                 String newServiceId = newServiceRef.getKey();
 
+                newServiceRef.child("serviceId").setValue(newServiceId);
                 newServiceRef.child("serviceName").setValue(serviceName);
                 newServiceRef.child("servicePrice").setValue(servicePrice);
                 newServiceRef.child("serviceDepartment").setValue(serviceDepartment);
@@ -91,14 +93,14 @@ public class AddServiceActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(AddServiceActivity.this, "Service added successfully!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(AddServiceActivity.this, "Serviciu adăugat cu succes!", Toast.LENGTH_LONG).show();
                                 progressDialog.dismiss();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(AddServiceActivity.this, "Failed to add service.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(AddServiceActivity.this, "Serviciul nu a fost adăugat.", Toast.LENGTH_LONG).show();
                                 progressDialog.dismiss();
                             }
                         });

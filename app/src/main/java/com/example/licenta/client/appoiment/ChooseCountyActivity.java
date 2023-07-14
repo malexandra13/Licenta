@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,8 @@ public class ChooseCountyActivity extends AppCompatActivity implements AdapterVi
     private DatabaseReference databaseReference;
     private RecyclerView recyclerView;
     private SalonAdapter adapter;
+    private TextView textNoSalons;
+
 
     private Spinner countySpinner;
     private Context context;
@@ -43,6 +46,8 @@ public class ChooseCountyActivity extends AppCompatActivity implements AdapterVi
         setContentView(R.layout.activity_choose_county);
         context = this;
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        textNoSalons = findViewById(R.id.noSalons);
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -66,11 +71,13 @@ public class ChooseCountyActivity extends AppCompatActivity implements AdapterVi
         String selectedDepartment = getIntent().getStringExtra("selectedDepartment");
         String selectedCounty = parent.getItemAtPosition(position).toString();
         retrieveSalons(selectedDepartment, selectedCounty);
+
     }
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        // Handle the case where no department is selected
+
     }
 
     private void retrieveSalons(String selectedDepartment, final String selectedCounty) {
@@ -98,7 +105,7 @@ public class ChooseCountyActivity extends AppCompatActivity implements AdapterVi
     }
 
     private void querySalons(final String selectedCounty, final List<String> salonIds) {
-        Query query = databaseReference.child("salon").orderByChild("salonState").equalTo(selectedCounty);
+        Query query = databaseReference.child("salon").orderByChild("salonCounty").equalTo(selectedCounty);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -113,9 +120,18 @@ public class ChooseCountyActivity extends AppCompatActivity implements AdapterVi
 
                 Log.d("SalonList", "Salon List Size: " + salonList.size());
 
-                adapter = new SalonAdapter(salonList, context);
-                adapter.setOnItemClickListener(ChooseCountyActivity.this);
-                recyclerView.setAdapter(adapter);
+
+                if (salonList.isEmpty()) {
+                    textNoSalons.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
+                } else {
+                    textNoSalons.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.VISIBLE);
+
+                    adapter = new SalonAdapter(salonList, context);
+                    adapter.setOnItemClickListener(ChooseCountyActivity.this);
+                    recyclerView.setAdapter(adapter);
+                }
             }
 
             @Override
@@ -125,10 +141,16 @@ public class ChooseCountyActivity extends AppCompatActivity implements AdapterVi
         });
     }
 
+
     @Override
     public void onItemClick(String salonId) {
+        Salon selectedSalon = adapter.getSalonItem(salonId);
         Intent intent = new Intent(this, ClientSalonDetailsActivity.class);
         intent.putExtra("salonId", salonId);
+        intent.putExtra("salonName", selectedSalon.getSalonName());
+        intent.putExtra("selectedDepartment", getIntent().getStringExtra("selectedDepartment"));
+        intent.putExtra("startHour", selectedSalon.getSalonOpenHours());
+        intent.putExtra("endHour", selectedSalon.getSalonCloseHours());
         startActivity(intent);
     }
 }

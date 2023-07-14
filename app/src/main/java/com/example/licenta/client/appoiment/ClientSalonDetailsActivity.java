@@ -25,12 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 public class ClientSalonDetailsActivity extends AppCompatActivity {
 
     private TextView salonNameTextView;
-    private TextView salonStateTextView, salonCityTextView, salonStreetTextView, salonPostalCodeTextView;
+    private TextView salonCountyTextView, salonCityTextView, salonStreetTextView, salonPostalCodeTextView;
     private TextView salonPhoneTextView, salonEmailTextView;
     private TextView salonDescriptionTextView;
     private ImageView salonImageView;
-    private Button buttonAddServices;
-    private Button buttonAddEmployees;
     private Button buttonViewServices;
 
     @Override
@@ -41,7 +39,7 @@ public class ClientSalonDetailsActivity extends AppCompatActivity {
         buttonViewServices = findViewById(R.id.buttonViewServices);
 
         salonNameTextView = findViewById(R.id.twNameSalon);
-        salonStateTextView = findViewById(R.id.twSalonCounty);
+        salonCountyTextView = findViewById(R.id.twSalonCounty);
         salonCityTextView = findViewById(R.id.twSalonCity);
         salonStreetTextView = findViewById(R.id.twSalonStreet);
         salonPostalCodeTextView = findViewById(R.id.twPostalCode);
@@ -51,12 +49,17 @@ public class ClientSalonDetailsActivity extends AppCompatActivity {
         salonImageView = findViewById(R.id.imageViewSalon);
 
         String salonId = getIntent().getStringExtra("salonId");
+        String department = getIntent().getStringExtra("selectedDepartment");
 
         buttonViewServices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ClientSalonDetailsActivity.this, ChooseServiceActivity.class);
                 intent.putExtra("salonId", salonId);
+                intent.putExtra("selectedDepartment", department);
+                intent.putExtra("startHour", getIntent().getStringExtra("startHour"));
+                intent.putExtra("endHour", getIntent().getStringExtra("endHour"));
+                intent.putExtra("salonName", getIntent().getStringExtra("salonName"));
                 startActivity(intent);
             }
         });
@@ -72,7 +75,7 @@ public class ClientSalonDetailsActivity extends AppCompatActivity {
                         Salon salon = salonSnapshot.getValue(Salon.class);
                         if (salon != null && salon.getSalonId().equals(salonId)) {
                             salonNameTextView.setText(salon.getSalonName());
-                            salonStateTextView.setText(salon.getSalonCounty());
+                            salonCountyTextView.setText(salon.getSalonCounty());
                             salonCityTextView.setText(salon.getSalonCity());
                             salonStreetTextView.setText(salon.getSalonStreet());
                             salonPostalCodeTextView.setText(salon.getSalonPostalCode());

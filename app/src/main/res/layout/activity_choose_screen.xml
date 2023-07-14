@@ -7,37 +7,60 @@
     tools:context=".welcome_activity.ChooseScreen">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/hello"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
         android:text="@string/select_your_role"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/buttonClient"
-        android:layout_width="295dp"
-        android:layout_height="201dp"
+        android:layout_width="340dp"
+        android:layout_height="185dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="90dp"
+        android:background="@color/platinum"
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="97dp"
-            android:layout_height="74dp"
-            android:src="@drawable/client" />
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="90dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/client_interface"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/client" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="@string/client_interface"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -48,6 +71,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="@string/details_client"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -56,27 +80,37 @@
 
     <LinearLayout
         android:id="@+id/buttonOwner"
-        android:layout_width="295dp"
-        android:layout_height="209dp"
+        android:layout_width="340dp"
+        android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="300dp"
+        android:background="@color/platinum"
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="125dp"
-            android:layout_height="101dp"
-            android:src="@drawable/owner" />
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="90dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/salon_owner"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/owner" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="@string/salon_owner"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -87,6 +121,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/details_owner"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -96,27 +131,37 @@
 
     <LinearLayout
         android:id="@+id/buttonEmployee"
-        android:layout_width="294dp"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="200dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="520dp"
+        android:background="@color/platinum"
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="148dp"
-            android:layout_height="109dp"
-            android:src="@drawable/employee" />
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="90dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/employee_dashboard"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            <ImageView
+                android:layout_width="115dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/employee" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="@string/employee_dashboard"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -127,6 +172,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/details_employee"
                 android:textColor="@color/black"
                 android:textSize="17sp" />

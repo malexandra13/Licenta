@@ -42,8 +42,9 @@ import java.util.UUID;
 public class AddSalon extends AppCompatActivity {
 
     TextView salonName, salonStreet, salonPostalCode, salonPhone, salonEmail, salonDescription, salonCity;
+    TextView salonOpenHour, salonCloseHour;
     ImageView uploadImageView, salonImageView;
-    Spinner salonStateSpinner;
+    Spinner salonCountySpinner;
     Button addSalonButton;
     RelativeLayout relativeLayout;
     Uri imageUri;
@@ -65,7 +66,6 @@ public class AddSalon extends AppCompatActivity {
         if (currentUser != null) {
             final String accountId = currentUser.getUid();
         }
-
         progressDialog = new ProgressDialog(this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setMessage("Please wait...");
@@ -84,14 +84,15 @@ public class AddSalon extends AppCompatActivity {
         salonImageView = findViewById(R.id.salonImage);
         relativeLayout = findViewById(R.id.relative);
         addSalonButton = findViewById(R.id.addSalon);
+        salonOpenHour = findViewById(R.id.startProgram);
+        salonCloseHour = findViewById(R.id.endProgram);
 
-        salonStateSpinner = findViewById(R.id.spinner);
+        salonCountySpinner = findViewById(R.id.spinnerCounty);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.spinner_items_county));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        salonStateSpinner.setAdapter(adapter);
-
+        salonCountySpinner.setAdapter(adapter);
 
 
         uploadImageView.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +101,6 @@ public class AddSalon extends AppCompatActivity {
                 uploadPicture();
                 relativeLayout.setVisibility(View.VISIBLE);
                 uploadImageView.setVisibility(View.GONE);
-
             }
         });
 
@@ -124,18 +124,20 @@ public class AddSalon extends AppCompatActivity {
                                 salon.setAccountId(currentUser.getUid());
                                 salon.setSalonName(salonName.getText().toString());
                                 salon.setSalonCity(salonCity.getText().toString());
-                                salon.setSalonCounty(salonStateSpinner.getSelectedItem().toString());
+                                salon.setSalonCounty(salonCountySpinner.getSelectedItem().toString());
                                 salon.setSalonStreet(salonStreet.getText().toString());
                                 salon.setSalonPostalCode(salonPostalCode.getText().toString());
                                 salon.setSalonPhone(salonPhone.getText().toString());
                                 salon.setSalonEmail(salonEmail.getText().toString());
                                 salon.setSalonDescription(salonDescription.getText().toString());
+                                salon.setSalonOpenHours(salonOpenHour.getText().toString());
+                                salon.setSalonCloseHours(salonCloseHour.getText().toString());
 
                                 database.getReference().child("salon").push()
                                         .setValue(salon).addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                                Toast.makeText(AddSalon.this, "Salon added successfully", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(AddSalon.this, "Salonul a fost adaugat cu succes!", Toast.LENGTH_LONG).show();
                                                 Intent intent = new Intent(AddSalon.this, MainOwnerActivity.class);
                                                 startActivity(intent);
                                                 progressDialog.dismiss();
@@ -143,7 +145,7 @@ public class AddSalon extends AppCompatActivity {
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(AddSalon.this, "Failed to add salon", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(AddSalon.this, "Nu s-a putut adăuga salonul.", Toast.LENGTH_LONG).show();
                                                 progressDialog.dismiss();
                                             }
                                         });
@@ -153,7 +155,6 @@ public class AddSalon extends AppCompatActivity {
                 });
             }
         });
-
     }
 
     private void uploadPicture() {
@@ -173,6 +174,7 @@ public class AddSalon extends AppCompatActivity {
                         Toast.makeText(AddSalon.this, "Permission denied", Toast.LENGTH_LONG).show();
 
                     }
+
                     @Override
                     public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
                         permissionToken.continuePermissionRequest();

@@ -15,6 +15,7 @@ import java.util.List;
 
 public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder> {
     private List<Service> serviceList;
+    private OnItemClickListener listener;
 
     public ServiceAdapter() {
         serviceList = new ArrayList<>();
@@ -22,10 +23,16 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
 
     public void addService(Service service) {
         serviceList.add(service);
+        notifyDataSetChanged();
     }
 
     public void clear() {
         serviceList.clear();
+        notifyDataSetChanged();
+    }
+
+    public Service getService(int position) {
+        return serviceList.get(position);
     }
 
     @NonNull
@@ -46,7 +53,15 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
         return serviceList.size();
     }
 
-    static class ServiceViewHolder extends RecyclerView.ViewHolder {
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    class ServiceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView serviceNameTextView;
         private TextView serviceDepartmentTextView;
         private TextView serviceDescriptionTextView;
@@ -58,6 +73,8 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
             serviceDepartmentTextView = itemView.findViewById(R.id.tvServiceDepartment);
             serviceDescriptionTextView = itemView.findViewById(R.id.tvServiceDescription);
             priceTextView = itemView.findViewById(R.id.tvPrice);
+
+            itemView.setOnClickListener(this);
         }
 
         void bind(Service service) {
@@ -65,6 +82,16 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
             priceTextView.setText(String.valueOf(service.getServicePrice()));
             serviceDepartmentTextView.setText(service.getServiceDepartment());
             serviceDescriptionTextView.setText(service.getServiceDescription());
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (listener != null) {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(position);
+                }
+            }
         }
     }
 }

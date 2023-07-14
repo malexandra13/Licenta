@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.licenta.R;
@@ -30,6 +31,7 @@ public class MainEmployeeActivity extends AppCompatActivity {
     FirebaseUser user;
     TextView greetingText;
     Button btnLogout;
+    LinearLayout btnCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,16 @@ public class MainEmployeeActivity extends AppCompatActivity {
 
         greetingText = findViewById(R.id.greetingTextView);
         btnLogout = findViewById(R.id.buttonLogout);
+        btnCalendar = findViewById(R.id.calendarEmployee);
+
+        btnCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainEmployeeActivity.this, CalendarEmployeeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         DocumentReference documentReference = FirebaseFirestore.getInstance().collection("employee").document(user.getUid());
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {

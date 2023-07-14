@@ -60,11 +60,14 @@ public class HomeFragment extends Fragment {
         integerArrayList = new ArrayList<>();
         integerArrayList.add(R.drawable.unghii);
         integerArrayList.add(R.drawable.make_up);
-        integerArrayList.add(R.drawable.barbat_tunsoare);
+        integerArrayList.add(R.drawable.pedi);
         integerArrayList.add(R.drawable.coafura);
         integerArrayList.add(R.drawable.unghii2);
-        integerArrayList.add(R.drawable.barba);
+        integerArrayList.add(R.drawable.hair3);
         integerArrayList.add(R.drawable.make_up2);
+        integerArrayList.add(R.drawable.make_up3);
+        integerArrayList.add(R.drawable.nailssss);
+        integerArrayList.add(R.drawable.nunta);
 
         recyclerViewAdapter = new RecyclerViewAdapter(getContext(), integerArrayList);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -78,7 +81,6 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
 
 
         Button buttonHistory = view.findViewById(R.id.buttonHistory);

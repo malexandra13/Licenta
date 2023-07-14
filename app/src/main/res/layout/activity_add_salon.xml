@@ -18,16 +18,15 @@
         tools:context=".owner.activities.AddSalon">
 
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="@string/add_salon"
+            android:textColor="@color/black"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -38,9 +37,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:text="@string/details_salon"
             android:textColor="@color/black"
-            android:text="@string/details_salon"/>
+            android:textSize="20sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -48,22 +47,21 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/salonName"
-                android:background="@color/platinum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
                 android:drawableStart="@drawable/baseline_house_24"
                 android:drawablePadding="15dp"
                 android:hint="@string/salonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinnerCounty"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
-            android:background="@color/platinum"
-            />
+            android:background="@color/platinum" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -71,18 +69,18 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/salonCity"
-                android:drawableStart="@drawable/baseline_location_city_24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
+                android:drawableStart="@drawable/baseline_location_city_24"
                 android:drawablePadding="15dp"
-                android:hint="@string/salonCity"
-                android:background="@color/platinum"/>
+                android:hint="@string/salonCity" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -93,10 +91,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:drawablePadding="15dp"
+                android:background="@color/platinum"
                 android:drawableStart="@drawable/baseline_streetview_24"
-                android:hint="@string/salonStreet"
-                android:background="@color/platinum"/>
+                android:drawablePadding="15dp"
+                android:hint="@string/salonStreet" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -108,10 +106,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
                 android:drawableStart="@drawable/baseline_signpost_24"
                 android:drawablePadding="15dp"
-                android:hint="@string/salonPostalCode"
-                android:background="@color/platinum"/>
+                android:hint="@string/salonPostalCode" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -123,11 +121,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
                 android:drawableStart="@drawable/baseline_local_phone_24"
                 android:drawablePadding="15dp"
                 android:hint="@string/phoneNumber"
-                android:inputType="number"
-                android:background="@color/platinum"/>
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -139,10 +137,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
                 android:drawableLeft="@drawable/baseline_email_24"
                 android:drawablePadding="15dp"
-                android:hint="@string/email"
-                android:background="@color/platinum"/>
+                android:hint="@string/email" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -154,10 +152,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
                 android:drawableLeft="@drawable/baseline_description_24"
                 android:drawablePadding="15dp"
-                android:hint="@string/salonDescription"
-                android:background="@color/platinum"/>
+                android:hint="@string/salonDescription" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -165,14 +163,31 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/salonProgram"
+                android:id="@+id/startProgram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@color/platinum"
                 android:drawableLeft="@drawable/baseline_access_time_24"
                 android:drawablePadding="15dp"
-                android:hint="@string/salonProgram"
-                android:background="@color/platinum"/>
+                android:hint="@string/startProgram"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/endProgram"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/platinum"
+                android:drawableLeft="@drawable/baseline_access_time_24"
+                android:drawablePadding="15dp"
+                android:hint="@string/endProgram"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -183,13 +198,13 @@
             android:visibility="gone" />
 
         <TextView
-            android:textSize="18sp"
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/upload_image"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/uploadImage"
@@ -207,7 +222,6 @@
                 android:id="@+id/salonImage"
                 android:layout_width="352dp"
                 android:layout_height="160dp" />
-
 
         </RelativeLayout>
 

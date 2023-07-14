@@ -27,11 +27,18 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
         this.context = context;
     }
 
+    public Salon getSalonItem(String salonId) {
+        for (Salon salon : list) {
+            if (salon.getSalonId().equals(salonId)) {
+                return salon;
+            }
+        }
+        return null;
+    }
+
     public interface OnItemClickListener {
         void onItemClick(String salonId);
     }
-
-
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.onItemClickListener = listener;
@@ -52,7 +59,7 @@ public class SalonAdapter extends RecyclerView.Adapter<SalonAdapter.ViewHolder> 
                 placeholder(R.drawable.upload_image).
                 into(holder.itemSalonImageView);
         holder.itemSalonName.setText(model.getSalonName());
-        holder.itemSalonCity.setText(model.getSalonCity()+", "+model.getSalonStreet());
+        holder.itemSalonCity.setText(model.getSalonCity() + ", " + model.getSalonStreet());
         holder.itemSalonDescription.setText(model.getSalonDescription());
 
 

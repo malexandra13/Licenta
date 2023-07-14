@@ -1,74 +1,73 @@
 <resources>
     <string name="app_name">Licenta</string>
+    <string name="hello">Hello!</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="register">Register</string>
-    <string name="logout">Logout</string>
-    <string name="firstName">First name</string>
-    <string name="lastName">Last name</string>
-    <string name="registerNow">New member? Register now!</string>
-    <string name="loginNow">Already a member? Log In</string>
-    <string name="phoneNumber">Phone number</string>
-    <string name="rememberMe">Remember me</string>
-    <string name="othersConnection">Or sign in with</string>
-    <string name="forgotPassword">Forgot password?</string>
+    <string name="email_">Email:</string>
+    <string name="password">Parola</string>
+    <string name="register">Înregistrare</string>
+    <string name="logout">Deconectare</string>
+    <string name="firstName">Nume</string>
+    <string name="lastName">Prenume</string>
+    <string name="registerNow">Membru nou? Înregistrează-te acum!</string>
+    <string name="loginNow">Sunteți deja membru? Log In</string>
+    <string name="phoneNumber">Telefon</string>
+    <string name="phoneNumber_">Telefon:</string>
+    <string name="othersConnection">Sau conectați-vă cu</string>
+    <string name="forgotPassword">Aţi uitat parola?</string>
     <string name="cancel">Cancel</string>
     <string name="reset">Reset</string>
-    <string name="open_nav">Open Navigation Drawer</string>
-    <string name="close_nav">Close Navigation Drawer</string>
     <string name="others">Others</string>
-    <string name="appoiment">Make an appointment</string>
-    <string name="history">Appointment history</string>
-    <string name="inspiration">Today\'s inspiration</string>
-    <string name="home">Home</string>
-    <string name="profile">Profile</string>
-    <string name="my_profile">My profile</string>
+    <string name="appoiment">Fă-ți o programare</string>
+    <string name="history">Istoricul programarilor</string>
+    <string name="inspiration">Inspirație</string>
+    <string name="home">Acasă</string>
+    <string name="profile">Profil</string>
+    <string name="my_profile">Profilul meu</string>
     <string name="inbox">Inbox</string>
-    <string name="about_us">About Us</string>
-    <string name="settings">Settings</string>
+    <string name="about_us">Despre noi</string>
+    <string name="settings">Setări</string>
     <string name="next">Next</string>
-    <string name="back_main_screen">Back to main screen</string>
-    <string name="client_interface">Client Interface</string>
-    <string name="salon_owner">Salon Owner Portal</string>
-    <string name="employee_dashboard">Employee Dashboard</string>
-    <string name="add_an_employee">Add an employee</string>
-    <string name="add_employee">Add employee</string>
-    <string name="createAccount">Create account</string>
-    <string name="add_salon">Add a new salon</string>
-    <string name="salonName">The name of the salon</string>
-    <string name="salonAddress">Salon address</string>
-    <string name="salonState">State</string>
-    <string name="salonCity">City</string>
-    <string name="salonStreet">Street</string>
-    <string name="salonPostalCode">Postal code</string>
-    <string name="salonDescription">Description</string>
-    <string name="salonProgram">Opening hours</string>
-    <string name="upload_image">Upload an image</string>
+    <string name="client_interface">Client</string>
+    <string name="salon_owner">Proprietar salon</string>
+    <string name="employee_dashboard">Angajat</string>
+    <string name="add_an_employee">Adăugați un angajat</string>
+    <string name="add_employee">Adăugați angajat</string>
+    <string name="createAccount">Creează cont</string>
+    <string name="add_salon">Adăugați un salon nou</string>
+    <string name="salonName">Numele salonului</string>
+    <string name="salonAddress">Adresa salonului</string>
+    <string name="salonCity">Oraș</string>
+    <string name="salonStreet">Strada</string>
+    <string name="salonPostalCode">Cod poștal</string>
+    <string name="salonDescription">Descriere</string>
+    <string name="startProgram">Ora de deschidere</string>
+    <string name="endProgram">Ora de inchidere</string>
+    <string name="upload_image">Încărcați o imagine</string>
     <string name="back">Back</string>
-    <string name="view_your_salons">View your salons</string>
-    <string name="not_add_salon">You have not added any salon</string>
-    <string name="view_services">View services</string>
-    <string name="add_a_service">Add a service</string>
-    <string name="add_service">Add service</string>
-    <string name="salon_name">Salon name</string>
+    <string name="view_your_salons">Vizualizați-vă saloanele</string>
+    <string name="not_add_salon">Nu ați adăugat niciun salon</string>
+    <string name="view_services">Vizualizați serviciile</string>
+    <string name="add_a_service">Adăugați un serviciu</string>
+    <string name="add_service">Adăugați serviciu</string>
+    <string name="salon_name">Numele salonului</string>
     <string name="skip">Skip</string>
     <string name="google">Google</string>
-    <string name="next_appointments">Next appointments</string>
-    <string name="client_login_portal">Client Login Portal</string>
-    <string name="owner_login_portal">Owner Login Portal</string>
-    <string name="employee_login_portal">Welcome to the Employee Login Portal!</string>
-    <string name="details_salon">Please provide the following details to add a new salon:</string>
-    <string name="select_your_role">Hello! Please select your role:</string>
-    <string name="details_client">As a client, you can browse and book services offered by salons, manage your appointments, and explore various beauty and wellness options.</string>
-    <string name="details_owner">If you own a salon or spa, choose this option to manage your business, track appointments, and update services and staff details.</string>
-    <string name="details_employee">Are you working at a salon or spa? Select this option to access your work schedule, manage client appointments, and stay organized.</string>
-    <string name="pay_now">Pay now</string>
-    <string name="payment_successful">Payment successful!</string>
-    <string name="completed_your_payment">Hooray! You have completed your payment.</string>
+    <string name="next_appointments">Următoarele programări</string>
+    <string name="client_login_portal">Portal de autentificare client</string>
+    <string name="owner_login_portal">Portal de conectare a proprietarului</string>
+    <string name="employee_login_portal">Bun venit pe portalul de conectare a angajaților!</string>
+    <string name="details_salon">Vă rugăm să furnizați următoarele detalii pentru a adăuga un nou salon:</string>
+    <string name="select_your_role">Vă rugăm să vă selectați rolul:</string>
+    <string name="details_client">În calitate de client, puteți căuta și rezerva serviciile oferite de saloane, puteți gestiona întâlnirile și puteți explora diverse opțiuni de frumusețe și wellness.</string>
+    <string name="details_owner">Dacă dețineți un salon, alegeți această opțiune pentru a vă gestiona afacerea, a urmări programările și a actualiza serviciile și detaliile personalului.</string>
+    <string name="details_employee">Lucrezi la un salon? Selectați această opțiune pentru a vă accesa programul de lucru, pentru a gestiona întâlnirile clienților și pentru a rămâne organizat.</string>
+    <string name="pay_now">Plătește</string>
+    <string name="payment_successful">Plata realizată cu succes!</string>
+    <string name="completed_your_payment">Ura! Ați finalizat plata.</string>
     <string name="x">X</string>
     <string-array name="spinner_items_county">
-        <item>Select a county</item>
+        <item>Selectați un județ</item>
         <item>Alba Iulia</item>
         <item>Arad</item>
         <item>Argeș</item>
@@ -118,34 +117,70 @@
     <string name="eyebrow">Eyebrow styling</string>
     <string name="hair_removal">Hair removal</string>
     <string name="facialTreatments">Facial treatments</string>
-    <string name="address">Address</string>
-    <string name="description">Description</string>
-    <string name="view_statistics">View statistics</string>
-    <string name="thanks">Thank you for booking our services!</string>
-    <string name="choose_the_county">Choose the county</string>
-    <string name="choose_your_service">Choose your service</string>
-    <string name="customers">The number of customers each month</string>
-    <string name="serviceName">Service name</string>
-    <string name="price">Price</string>
-    <string name="view_employee">View your employees</string>
-    <string name="department">Department:</string>
-    <string name="name">Name:</string>
-    <string name="no_employee">You don\'t have employee</string>
-    <string name="employee_no">Employee No.</string>
-    <string name="services">Services</string>
-    <string name="no_services">You have not added any service yet</string>
+    <string name="address">Adresă</string>
+    <string name="description">Descriere</string>
+    <string name="description_">Descriere:</string>
+    <string name="view_statistics">Vedeți statistici</string>
+    <string name="thanks">Vă mulțumim pentru rezervarea serviciilor noastre!</string>
+    <string name="choose_the_county">Alegeți județul</string>
+    <string name="choose_the_employee">Alegeți angajatul preferat</string>
+    <string name="choose_your_service">Alegeți serviciul</string>
+    <string name="customers">Numărul de clienți în fiecare lună</string>
+    <string name="serviceName">Numele serviciului</string>
+    <string name="serviceName_">Numele serviciului:</string>
+    <string name="price">Pret</string>
+    <string name="price_">Pret:</string>
+    <string name="view_employee">Vizualizați angajații dvs</string>
+    <string name="department">Departament:</string>
+    <string name="name">Nume:</string>
+    <string name="no_employee">Nu sunt angajați adăugați</string>
+    <string name="no_salon">Nu sunt adăugate saloane pentru acest județ</string>
+    <string name="employee_no">Numar angajat</string>
+    <string name="employee">Angajat</string>
+    <string name="chooseDate">Alegeți data și ora preferate</string>
+    <string name="services">Servicii</string>
+    <string name="service_added">Serviciile adăugate</string>
+    <string name="nivel_pregatire">Nivel pregătire:</string>
+    <string name="no_services">Nu ați adăugat încă niciun serviciu</string>
+    <string name="client_no_services">Nu sunt adăugate servicii pentru acest salon</string>
     <string name="beauty_app">Beauty Salon App</string>
-    <string name="version">Version:</string>
-    <string name="about">The Beauty Salon App is a mobile application designed to enhance the experience of beauty and wellness enthusiasts. Whether you are looking to book appointments, discover new treatments, or stay updated with the latest beauty trends, this app is your one-stop solution.</string>
+    <string name="version">Versiunea:</string>
+    <string name="help">Dacă întâmpini orice problemă, te rugăm să ne contactezi:</string>
+    <string name="about">Aplicația Beauty Salon este o aplicație mobilă concepută pentru a îmbunătăți experiența pasionaților de frumusețe și wellness. Indiferent dacă doriți să rezervați întâlniri, să descoperiți noi tratamente sau să fiți la curent cu cele mai recente tendințe de frumusețe, această aplicație este soluția dvs. unică.</string>
     <string name="version_format">v1.0</string>
+    <string name="change_password">Schimbaţi parola</string>
+    <string name="enter_email_address">Introdu adresa ta de email:</string>
+    <string name="new_password">Parolă nouă:</string>
+    <string name="confirm_password">Confirmă parola:</string>
+    <string name="confirm_password2">Confirmă parola</string>
+    <string name="book_appointment">Rezervați o programare</string>
+    <string name="salonCounty">Județ</string>
+    <string name="durationHours">Durata serviciului in ORE:</string>
+    <string name="durationMinutes">Durata serviciului in MINUTE:</string>
+    <string name="date">Data programării:</string>
+    <string name="hour">Ora programării:</string>
+    <string name="salonPay">Aleg să plătesc la salon</string>
+    <string name="homeScreen">Reveniţi la ecranul principal.</string>
+    <string name="saloanele_mele">Saloanele mele</string>
+    <string name="detalii_despre_salonul_ales">Detalii despre salonul ales</string>
+    <string name="beauty_app_email">beautysalon@app.com</string>
+    <string name="beauty_app_phone">0736.465.424</string>
+    <string name="view_calendar">Vizualizare programări</string>
+    <string name="salveaz_programarea">Salvează programarea</string>
     <string-array name="spinner_items_department">
-        <item>Select a department</item>
+        <item>Alege un departament</item>
         <item>Make Up</item>
         <item>Hairstyle</item>
         <item>Nails</item>
         <item>Eyebrow styling</item>
         <item>Hair removal</item>
         <item>Facial treatments</item>
+    </string-array>
+    <string-array name="spinner_items_nivel">
+        <item>Alege nivel pregatire</item>
+        <item>Junior</item>
+        <item>Master</item>
+        <item>Senior</item>
     </string-array>
 
 

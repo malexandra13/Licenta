@@ -9,8 +9,9 @@
     tools:context=".employee.login.LoginEmployee">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/employee_login_portal"
         android:textColor="@color/black"
         android:textSize="20sp"/>
