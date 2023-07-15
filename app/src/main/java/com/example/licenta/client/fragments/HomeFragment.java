@@ -87,13 +87,27 @@ public class HomeFragment extends Fragment {
         buttonHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HistoryFragment historyFragment = new HistoryFragment();
+                HistoryAppointmentsFragment historyAppointmentsFragment = new HistoryAppointmentsFragment();
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.navHostFragment, historyFragment);
+                fragmentTransaction.replace(R.id.navHostFragment, historyAppointmentsFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-                fragmentChangedListener.onFragmentChanged("History Fragment");
+                fragmentChangedListener.onFragmentChanged("Istoric programări");
+            }
+        });
+
+        Button buttonNextAppointment = view.findViewById(R.id.buttonNextAppoiment);
+        buttonNextAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NextAppointmentsFragment nextAppointmentsFragment = new NextAppointmentsFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.navHostFragment, nextAppointmentsFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                fragmentChangedListener.onFragmentChanged("Programări viitoare");
             }
         });
     }

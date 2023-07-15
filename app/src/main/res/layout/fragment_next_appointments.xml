@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".client.fragments.HistoryAppointmentsFragment">
+    tools:context=".client.fragments.NextAppointmentsFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:gravity="center"
-        android:text="@string/history"
+        android:text="@string/next_appointments"
         android:textColor="@color/black"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -20,14 +20,13 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/history_app" />
+        android:src="@drawable/next_appointment2" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/historyRecyclerView"
+        android:id="@+id/nextAppRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp" />
-
 
 </LinearLayout>

@@ -1,63 +1,111 @@
 package com.example.licenta.owner.activities;
 
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
-import android.os.Bundle;
-
 import com.example.licenta.R;
+import com.example.licenta.client.others.Appointment;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class StatisticsActivity extends AppCompatActivity {
 
-    private BarChart barChart;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
+        FirebaseApp.initializeApp(this);
+        databaseReference = FirebaseDatabase.getInstance().getReference("appointments");
 
-        barChart = findViewById(R.id.barChart);
+        fetchAppointmentsDataForSalon(getIntent().getStringExtra("salonId"));
+    }
 
-        ArrayList<BarEntry> barEntries = new ArrayList<>();
-        barEntries.add(new BarEntry(0f, 5f)); // Ianuarie
-        barEntries.add(new BarEntry(1f, 3f)); // Februarie
-        barEntries.add(new BarEntry(2f, 7f)); // Martie
-        barEntries.add(new BarEntry(3f, 4f)); // Aprilie
-        barEntries.add(new BarEntry(4f, 9f)); // Mai
-        barEntries.add(new BarEntry(5f, 6f)); // Iunie
-        barEntries.add(new BarEntry(6f, 6f)); // Iulie
-        barEntries.add(new BarEntry(7f, 0f)); // August
-        barEntries.add(new BarEntry(8f, 0f)); // Septembrie
-        barEntries.add(new BarEntry(9f, 0f)); // Octombrie
-        barEntries.add(new BarEntry(10f, 0f)); // Noiembrie
-        barEntries.add(new BarEntry(11f, 0f)); // Decembrie
+    private void fetchAppointmentsDataForSalon(String salonId) {
+        databaseReference.orderByChild("salonId").equalTo(salonId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Map<String, Integer> clientsPerMonth = new HashMap<>();
+                for (DataSnapshot appointmentSnapshot : snapshot.getChildren()) {
+                    Appointment appointment = appointmentSnapshot.getValue(Appointment.class);
+                    if (appointment != null) {
+                        String month = getMonthFromAppointmentDate(appointment.getDate());
+                        clientsPerMonth.put(month, clientsPerMonth.getOrDefault(month, 0) + 1);
+                    }
+                }
 
-        BarDataSet barDataSet = new BarDataSet(barEntries, "Clients");
+                // Display the bar chart
+                displayBarChart(clientsPerMonth);
+            }
 
-        barDataSet.setColor(Color.parseColor("#8692f7"));
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle errors here
+            }
+        });
+    }
 
-        BarData barData = new BarData(barDataSet);
-        barData.setBarWidth(0.9f);
+
+    private String getMonthFromAppointmentDate(String date) {
+        Log.d("DEBUG", "getMonthFromAppointmentDate - Date: " + date);
+        return date.substring(0, 7);
+    }
+
+
+    private void displayBarChart(Map<String, Integer> clientsPerMonth) {
+        BarChart barChart = findViewById(R.id.barChart);
+        List<BarEntry> entries = new ArrayList<>();
+        List<String> labels = new ArrayList<>();
+
+        int index = 0;
+        for (Map.Entry<String, Integer> entry : clientsPerMonth.entrySet()) {
+            String month = entry.getKey();
+            int numClients = entry.getValue();
+
+            entries.add(new BarEntry(index++, numClients));
+            labels.add(month);
+        }
+
+        BarDataSet dataSet = new BarDataSet(entries, "Number of Clients");
+        dataSet.setColor(getResources().getColor(R.color.lavender_bright));
+
+        BarData barData = new BarData(dataSet);
+
+        // Set custom X-axis labels
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
+
+// Rotate X-axis labels if necessary (optional)
+        xAxis.setLabelRotationAngle(45);
+
+// Set the position of X-axis
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setGranularity(1f); // Add this line to force the interval to be 1 between labels
 
         barChart.setData(barData);
-        barChart.setFitBars(true);
-
-        String[] luni = new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-        barChart.getXAxis().setValueFormatter(new com.github.mikephil.charting.formatter.IndexAxisValueFormatter(luni));
-
-        barChart.getDescription().setEnabled(false);
-        barChart.getAxisLeft().setAxisMinimum(0f);
-        barChart.getAxisRight().setEnabled(false);
-        barChart.getLegend().setEnabled(false);
-
-
         barChart.invalidate();
+
     }
+
+
 }

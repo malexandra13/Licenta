@@ -16,6 +16,7 @@ import com.example.licenta.R;
 import com.example.licenta.owner.activities.AddEmployee;
 import com.example.licenta.owner.activities.AddSalon;
 import com.example.licenta.owner.activities.MySalons;
+import com.example.licenta.owner.activities.SalonStatisticsActivity;
 import com.example.licenta.owner.activities.StatisticsActivity;
 import com.example.licenta.owner.activities.ViewAllEmployeeActivity;
 import com.example.licenta.owner.login_register.LoginOwner;
@@ -64,7 +65,7 @@ public class MainOwnerActivity extends AppCompatActivity {
         btnStatistics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainOwnerActivity.this, StatisticsActivity.class);
+                Intent intent = new Intent(MainOwnerActivity.this, SalonStatisticsActivity.class);
                 startActivity(intent);
             }
         });
