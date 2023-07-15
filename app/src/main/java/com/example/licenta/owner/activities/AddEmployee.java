@@ -65,7 +65,7 @@ public class AddEmployee extends AppCompatActivity {
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
                 String userType = "employee";
-                String employeeId = mAuth.getCurrentUser().getUid();
+                String employeeId = firebaseFirestore.collection("employee").document().getId();
                 String email = String.valueOf(editTextEmail.getText());
                 String password = String.valueOf(editTextPassword.getText());
                 String lastName = String.valueOf(editTextLastName.getText());
@@ -128,6 +128,5 @@ public class AddEmployee extends AppCompatActivity {
         });
     }
 }
-
 
 

@@ -1,4 +1,4 @@
-package com.example.licenta.client.appoiment;
+package com.example.licenta.client.appointment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -125,7 +125,6 @@ public class ChooseDateActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot appointmentSnapshot : dataSnapshot.getChildren()) {
                     Appointment appointment = appointmentSnapshot.getValue(Appointment.class);
-                    Log.d("alex", "Fetched appointment: " + appointment);
 
                     if (appointment.getDate().equals(selectedDateString)) {
                         Calendar bookedSlot = Calendar.getInstance();
@@ -216,16 +215,19 @@ public class ChooseDateActivity extends AppCompatActivity {
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
             String formattedDate = sdf.format(calendar.getTime());
+
             Appointment appointment = new Appointment(salondId, accountId, employeeId, serviceId, price, formattedDate, formattedTime);
 
             DatabaseReference appointmentsRef = firebaseDatabase.getReference().child("appointments");
             String appointmentId = appointmentsRef.push().getKey();
-            appointment.setEmployeeId(getIntent().getStringExtra("employeeId"));
+
+            Log.d("alexandra", appointment.toString());
 
             appointmentsRef.child(appointmentId).setValue(appointment)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+
                             Toast.makeText(ChooseDateActivity.this, "Appointment booked successfully!", Toast.LENGTH_SHORT).show();
                             selectedButton.setEnabled(false);
 

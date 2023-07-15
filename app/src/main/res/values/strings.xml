@@ -125,6 +125,9 @@
     <string name="choose_the_county">Alegeți județul</string>
     <string name="choose_the_employee">Alegeți angajatul preferat</string>
     <string name="choose_your_service">Alegeți serviciul</string>
+    <string name="choose_your_department">Alegeți departamentul</string>
+    <string name="no_appointments">Nu există programări pentru data selectată.</string>
+
     <string name="customers">Numărul de clienți în fiecare lună</string>
     <string name="serviceName">Numele serviciului</string>
     <string name="serviceName_">Numele serviciului:</string>
@@ -137,7 +140,7 @@
     <string name="no_salon">Nu sunt adăugate saloane pentru acest județ</string>
     <string name="employee_no">Numar angajat</string>
     <string name="employee">Angajat</string>
-    <string name="chooseDate">Alegeți data și ora preferate</string>
+    <string name="chooseDate">Alegeți data și ora preferată</string>
     <string name="services">Servicii</string>
     <string name="service_added">Serviciile adăugate</string>
     <string name="nivel_pregatire">Nivel pregătire:</string>

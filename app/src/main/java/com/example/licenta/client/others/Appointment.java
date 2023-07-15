@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Appointment {
     private String salonId;
-    private String accountId;
+    private String clientId;
     private String employeeId;
     private String serviceId;
     private String price;
@@ -17,9 +17,9 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(String salonId, String accountId, String employeeId, String serviceId, String price, String date, String time) {
+    public Appointment(String salonId, String clientId, String employeeId, String serviceId, String price, String date, String time) {
         this.salonId = salonId;
-        this.accountId = accountId;
+        this.clientId = clientId;
         this.serviceId = serviceId;
         this.employeeId = employeeId;
         this.price = price;
@@ -36,12 +36,12 @@ public class Appointment {
         this.salonId = salonId;
     }
 
-    public String getAccountId() {
-        return accountId;
+    public String getClientId() {
+        return clientId;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 
     public String getServiceId() {
@@ -84,7 +84,7 @@ public class Appointment {
     public String toString() {
         return "Appointment{" +
                 "salonId='" + salonId + '\'' +
-                ", accountId='" + accountId + '\'' +
+                ", clientId='" + clientId + '\'' +
                 ", employeeId='" + employeeId + '\'' +
                 ", serviceId='" + serviceId + '\'' +
                 ", price='" + price + '\'' +

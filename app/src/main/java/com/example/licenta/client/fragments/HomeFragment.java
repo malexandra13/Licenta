@@ -18,7 +18,7 @@ import android.widget.Button;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.licenta.client.appoiment.ChooseDepartmentActivity;
+import com.example.licenta.client.appointment.ChooseDepartmentActivity;
 import com.example.licenta.client.others.OnFragmentChangedListener;
 import com.example.licenta.client.others.RecyclerViewAdapter;
 import com.example.licenta.R;

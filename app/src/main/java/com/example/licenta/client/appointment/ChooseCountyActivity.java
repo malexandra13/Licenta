@@ -1,4 +1,4 @@
-package com.example.licenta.client.appoiment;
+package com.example.licenta.client.appointment;
 
 import android.content.Context;
 import android.content.Intent;

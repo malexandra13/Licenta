@@ -1,7 +1,8 @@
-package com.example.licenta.client.appoiment;
+package com.example.licenta.client.appointment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -60,8 +61,11 @@ public class ChooseEmployeeActivity extends AppCompatActivity implements Employe
                         employee.setLastName(documentSnapshot.getString("lastName"));
                         employee.setOwnerId(documentSnapshot.getString("ownerId"));
                         employee.setPhoneNumber(documentSnapshot.getString("phoneNumber"));
+                        employee.setEmployeeId(documentSnapshot.getString("employeeId"));
                         employee.setSalonId(documentSnapshot.getString("salonId"));
                         employee.setUserType(documentSnapshot.getString("userType"));
+                        employee.setNivelPregatire(documentSnapshot.getString("nivelPregatire"));
+
 
                         employeeList.add(employee);
                     }
@@ -135,6 +139,11 @@ public class ChooseEmployeeActivity extends AppCompatActivity implements Employe
         intent.putExtra("startHour", getIntent().getStringExtra("startHour"));
         intent.putExtra("endHour", getIntent().getStringExtra("endHour"));
         startActivity(intent);
+
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("employeeId", selectedEmployee.getEmployeeId());
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 
 }

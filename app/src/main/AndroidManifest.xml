@@ -23,13 +23,13 @@
             android:name=".employee.CalendarEmployeeActivity"
             android:exported="false" />
         <activity
-            android:name=".client.appoiment.ChooseEmployeeActivity"
+            android:name=".client.appointment.ChooseEmployeeActivity"
             android:exported="false" />
         <activity
-            android:name=".client.appoiment.ChooseDateActivity"
+            android:name=".client.appointment.ChooseDateActivity"
             android:exported="false" />
         <activity
-            android:name=".client.appoiment.ClientSalonDetailsActivity"
+            android:name=".client.appointment.ClientSalonDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".owner.activities.ViewServicesActivity"
@@ -44,19 +44,19 @@
             android:name=".owner.activities.StatisticsActivity"
             android:exported="false" />
         <activity
-            android:name=".client.appoiment.ChooseCountyActivity"
+            android:name=".client.appointment.ChooseCountyActivity"
             android:exported="false" />
         <activity
-            android:name=".client.appoiment.ChooseServiceActivity"
+            android:name=".client.appointment.ChooseServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".client.appoiment.ChooseDepartmentActivity"
+            android:name=".client.appointment.ChooseDepartmentActivity"
             android:exported="false" />
         <activity
-            android:name=".client.appoiment.SuccessfulPaymentActivity"
+            android:name=".client.appointment.SuccessfulPaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".client.appoiment.PaymentActivity"
+            android:name=".client.appointment.PaymentActivity"
             android:exported="false">
 
             <!-- <intent-filter> -->

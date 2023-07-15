@@ -1,4 +1,4 @@
-package com.example.licenta.client.appoiment;
+package com.example.licenta.client.appointment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.licenta.R;
-import com.example.licenta.owner.activities.ViewServicesActivity;
 import com.example.licenta.owner.others.Service;
 import com.example.licenta.owner.others.ServiceAdapter;
 import com.google.firebase.database.DataSnapshot;

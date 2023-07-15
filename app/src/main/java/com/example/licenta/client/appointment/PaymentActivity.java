@@ -1,4 +1,4 @@
-package com.example.licenta.client.appoiment;
+package com.example.licenta.client.appointment;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +21,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.licenta.R;
 import com.example.licenta.client.MainClientActivity;
-import com.example.licenta.client.fragments.HomeFragment;
 import com.stripe.android.PaymentConfiguration;
 import com.stripe.android.paymentsheet.PaymentSheet;
 import com.stripe.android.paymentsheet.PaymentSheetResult;

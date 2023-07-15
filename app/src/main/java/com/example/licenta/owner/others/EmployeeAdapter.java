@@ -61,6 +61,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         holder.tvEmployeeName.setText(employee.getFirstName() + " " + employee.getLastName());
         holder.tvPhoneNumber.setText(employee.getPhoneNumber());
         holder.tvEmployeeDepartment.setText(employee.getDepartment());
+        holder.tvNivelPregatire.setText(employee.getNivelPregatire());
 
         String salonId = employee.getSalonId();
         Salon salon = salonMap.get(salonId);
@@ -93,7 +94,6 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         TextView tvEmployeeName;
         TextView tvPhoneNumber;
         TextView tvEmployeeDepartment;
-        TextView tvNrEmployee;
         TextView tvSalonName;
         TextView tvNivelPregatire;
 

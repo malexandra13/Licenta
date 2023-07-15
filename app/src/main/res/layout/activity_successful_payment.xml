@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green"
-    tools:context=".client.appoiment.SuccessfulPaymentActivity">
+    tools:context=".client.appointment.SuccessfulPaymentActivity">
 
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="297dp"
