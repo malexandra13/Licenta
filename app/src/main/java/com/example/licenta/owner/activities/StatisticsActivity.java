@@ -2,6 +2,8 @@ package com.example.licenta.owner.activities;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -79,21 +81,31 @@ public class StatisticsActivity extends AppCompatActivity {
             labels.add(month);
         }
 
-        BarDataSet dataSet = new BarDataSet(entries, "Numărul de clienți");
-        dataSet.setColor(getResources().getColor(R.color.lavender_bright));
+        if (clientsPerMonth.isEmpty()) {
+            TextView noAppointmentsTextView = findViewById(R.id.noAppointmentsTextView);
+            noAppointmentsTextView.setVisibility(View.VISIBLE);
+            barChart.setVisibility(View.GONE);
+        } else {
+            TextView noAppointmentsTextView = findViewById(R.id.noAppointmentsTextView);
+            noAppointmentsTextView.setVisibility(View.GONE);
+            barChart.setVisibility(View.VISIBLE);
 
-        BarData barData = new BarData(dataSet);
+            BarDataSet dataSet = new BarDataSet(entries, "Numărul de clienți");
+            dataSet.setColor(getResources().getColor(R.color.lavender_bright));
 
-        XAxis xAxis = barChart.getXAxis();
-        xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
-        xAxis.setLabelRotationAngle(45);
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setGranularity(1f);
+            BarData barData = new BarData(dataSet);
 
-        barChart.setData(barData);
-        barChart.invalidate();
+            XAxis xAxis = barChart.getXAxis();
+            xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
+            xAxis.setLabelRotationAngle(45);
+            xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+            xAxis.setGranularity(1f);
 
+            barChart.setData(barData);
+            barChart.invalidate();
+        }
     }
+
 
 
 }

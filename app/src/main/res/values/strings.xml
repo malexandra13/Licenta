@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Licenta</string>
+    <string name="app_name">Beauty Salon App</string>
     <string name="hello">Hello!</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
@@ -130,13 +130,14 @@
     <string name="address">Adresă</string>
     <string name="description">Descriere</string>
     <string name="description_">Descriere:</string>
-    <string name="view_statistics">Vedeți statistici</string>
+    <string name="view_statistics">Vizualizați statistici</string>
     <string name="thanks">Vă mulțumim pentru rezervarea serviciilor noastre!</string>
     <string name="choose_the_county">Alegeți județul</string>
     <string name="choose_the_employee">Alegeți angajatul preferat</string>
     <string name="choose_your_service">Alegeți serviciul</string>
     <string name="choose_your_department">Alegeți departamentul</string>
     <string name="no_appointments">Nu există programări pentru data selectată.</string>
+    <string name="no_appointments_deloc">Nu există programări.</string>
     <string name="customers">Numărul de clienți în fiecare lună</string>
     <string name="serviceName">Numele serviciului</string>
     <string name="serviceName_">Numele serviciului:</string>
