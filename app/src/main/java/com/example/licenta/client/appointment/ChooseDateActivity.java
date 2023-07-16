@@ -180,7 +180,7 @@ public class ChooseDateActivity extends AppCompatActivity {
                     selectedHourSlotButton = clickedButton;
                     bookButton.setEnabled(true);
                 } else {
-                    Toast.makeText(ChooseDateActivity.this, "This hour slot is already booked.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChooseDateActivity.this, "Acest interval orar este deja rezervat.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -207,7 +207,7 @@ public class ChooseDateActivity extends AppCompatActivity {
 
             Calendar currentDateTime = Calendar.getInstance();
             if (calendar.before(currentDateTime)) {
-                Toast.makeText(ChooseDateActivity.this, "Cannot book appointment for past time.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChooseDateActivity.this, "Nu se poate rezerva o programare pentru timp trecut.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -228,7 +228,7 @@ public class ChooseDateActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
 
-                            Toast.makeText(ChooseDateActivity.this, "Appointment booked successfully!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChooseDateActivity.this, "Programare rezervată cu succes!", Toast.LENGTH_SHORT).show();
                             selectedButton.setEnabled(false);
 
                             new Handler().postDelayed(new Runnable() {
@@ -252,7 +252,7 @@ public class ChooseDateActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(ChooseDateActivity.this, "Failed to book appointment: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChooseDateActivity.this, "Nu s-a putut rezerva programarea:" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
 

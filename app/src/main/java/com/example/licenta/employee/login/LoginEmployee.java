@@ -67,17 +67,17 @@ public class LoginEmployee extends AppCompatActivity {
                     public void onClick(View view) {
                         String userEmail = emailBox.getText().toString();
                         if (TextUtils.isEmpty(userEmail) && !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
-                            Toast.makeText(LoginEmployee.this, "Enter your registered email id", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginEmployee.this, "Introduceți e-mail înregistrat.", Toast.LENGTH_SHORT).show();
                             return;
                         }
                         mAuth.sendPasswordResetEmail(userEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(LoginEmployee.this, "Check your email", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginEmployee.this, "Verificați email-ul.", Toast.LENGTH_SHORT).show();
                                     dialog.dismiss();
                                 } else {
-                                    Toast.makeText(LoginEmployee.this, "Unable to send, failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginEmployee.this, "Eșuat! Nu se poate trimite.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -104,13 +104,13 @@ public class LoginEmployee extends AppCompatActivity {
                 String password = String.valueOf(editTextPassword.getText());
 
                 if (TextUtils.isEmpty(email)) {
-                    editTextEmail.setError("Email is required");
+                    editTextEmail.setError("Email este obligatoriu!");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
                     progressBar.setVisibility(View.GONE);
-                    editTextPassword.setError("Enter password");
+                    editTextPassword.setError("Parola este obligatorie!");
                     return;
                 }
 
@@ -144,18 +144,18 @@ public class LoginEmployee extends AppCompatActivity {
                                                         finish();
 
                                                     } else {
-                                                        Toast.makeText(getApplicationContext(), "You are not an employee", Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(getApplicationContext(), "Nu ai cont de angajat.", Toast.LENGTH_LONG).show();
                                                     }
                                                 } else {
-                                                    Toast.makeText(getApplicationContext(), "You are not an employee", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(getApplicationContext(), "Nu ai cont de angajat.", Toast.LENGTH_LONG).show();
                                                 }
                                             } else {
-                                                Toast.makeText(getApplicationContext(), "Failed to retrieve user information", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), "Nu s-au putut prelua informațiile despre utilizator.", Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     });
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Autentificare eșuată.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

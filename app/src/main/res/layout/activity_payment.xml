@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/salonName"
+            android:text="@string/salonName_"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
-            android:text="@string/salonName"
+            android:text="@string/salonName_"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/serviceName"
+            android:text="@string/serviceName_"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -107,7 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/employee"
+            android:text="@string/employee_"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -126,7 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/price"
+            android:text="@string/price_"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
-            android:text="@string/price"
+            android:text="@string/price_"
             android:textColor="@color/black"
             android:textSize="18sp" />
 

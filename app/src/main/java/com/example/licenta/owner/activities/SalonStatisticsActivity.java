@@ -50,7 +50,6 @@ public class SalonStatisticsActivity extends AppCompatActivity implements SalonA
         adapter = new SalonAdapter(salonList, this);
         adapter.setOnItemClickListener(this);
 
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
@@ -59,7 +58,6 @@ public class SalonStatisticsActivity extends AppCompatActivity implements SalonA
 
         salonRef = FirebaseDatabase.getInstance().getReference().child("salon");
 
-        // Retrieve the salons added by the authenticated user
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
             String accountId = currentUser.getUid();

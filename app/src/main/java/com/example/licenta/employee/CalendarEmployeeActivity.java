@@ -36,16 +36,12 @@ public class CalendarEmployeeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_employee);
 
-
-        // Initialize Firestore settings
         db = FirebaseFirestore.getInstance();
 
         calendarView = findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
             Calendar selectedDate = Calendar.getInstance();
             selectedDate.set(year, month, dayOfMonth);
-
-            // Now fetch the appointments for the selected date
             fetchAppointmentsForDate(selectedDate);
         });
     }
@@ -62,7 +58,6 @@ public class CalendarEmployeeActivity extends AppCompatActivity {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
                             String employeeId = document.getString("employeeId");
-                            Log.d("CalendarEmployeeActivity", "phoneNumber: " + employeeId);
                             listener.onEmployeeIdReceived(employeeId);
                         } else {
                             listener.onError("Documentul nu există");

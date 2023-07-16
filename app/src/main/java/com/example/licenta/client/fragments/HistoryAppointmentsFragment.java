@@ -54,7 +54,6 @@ public class HistoryAppointmentsFragment extends Fragment {
     private void loadHistoryAppointments() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) {
-            // Utilizatorul nu este autentificat
             return;
         }
 

@@ -107,7 +107,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-
         return view;
     }
 
@@ -117,7 +116,6 @@ public class ProfileFragment extends Fragment {
             Picasso.get().load(imageUrl).into(profileImageView);
         }
     }
-
 
     private void retrieveUserData(String userId) {
         firestore.collection("clients")
@@ -136,7 +134,6 @@ public class ProfileFragment extends Fragment {
                             firstNameTextView.setText(firstName);
                             emailTextView.setText(email);
                             phoneNumberTextView.setText(phoneNumber);
-
 
                         }
                     }
@@ -160,20 +157,18 @@ public class ProfileFragment extends Fragment {
                         String confirmPassword = confirmPasswordEditText.getText().toString().trim();
 
                         if (TextUtils.isEmpty(newPassword) || TextUtils.isEmpty(confirmPassword)) {
-                            // Handle the case when either password field is empty
-                            Toast.makeText(getActivity(), "Please enter both the new password and confirm password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Vă rugăm să introduceți atât noua parolă, cât și să confirmați parola", Toast.LENGTH_SHORT).show();
                         } else if (!newPassword.equals(confirmPassword)) {
-                            // Handle the case when passwords do not match
-                            Toast.makeText(getActivity(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Parolele nu se potrivesc", Toast.LENGTH_SHORT).show();
                         } else {
                             mUser.updatePassword(newPassword)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(getActivity(), "Password updated successfully!", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getActivity(), "Parola a fost actualizată cu succes!", Toast.LENGTH_SHORT).show();
                                             } else {
-                                                Toast.makeText(getActivity(), "Failed to update password.", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getActivity(), "Nu s-a putut actualiza parola.", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
@@ -190,7 +185,6 @@ public class ProfileFragment extends Fragment {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
 
 
     private void openFileChooser() {
@@ -216,18 +210,13 @@ public class ProfileFragment extends Fragment {
     }
 
     private void uploadImageToStorage(Bitmap bitmap) {
-        // Generate a unique filename for the image (optional)
         String filename = UUID.randomUUID().toString() + ".jpg";
-
-        // Create a reference to the image file
         StorageReference imageRef = storageRef.child(filename);
 
-        // Convert the Bitmap to a byte array
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] imageData = baos.toByteArray();
 
-        // Upload the image to Firebase Storage
         UploadTask uploadTask = imageRef.putBytes(imageData);
         uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -238,12 +227,10 @@ public class ProfileFragment extends Fragment {
                     public void onSuccess(Uri uri) {
                         String imageUrl = uri.toString();
 
-                        // Save the image reference for persistence
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString(IMAGE_KEY, imageUrl);
                         editor.apply();
 
-                        // Load the image into the ImageView
                         Picasso.get().load(imageUrl).into(profileImageView);
                     }
                 });
@@ -252,5 +239,3 @@ public class ProfileFragment extends Fragment {
     }
 
 }
-
-

@@ -171,7 +171,7 @@ public class AddSalon extends AppCompatActivity {
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-                        Toast.makeText(AddSalon.this, "Permission denied", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AddSalon.this, "Acces refuzat", Toast.LENGTH_LONG).show();
 
                     }
 

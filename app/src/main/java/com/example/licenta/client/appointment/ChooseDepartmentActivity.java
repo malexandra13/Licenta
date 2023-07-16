@@ -30,7 +30,7 @@ public class ChooseDepartmentActivity extends AppCompatActivity {
         llNails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedLinearLayout = "Nails";
+                selectedLinearLayout = "Manichiură și Pedichiură";
                 Intent intent = new Intent(ChooseDepartmentActivity.this, ChooseCountyActivity.class);
                 intent.putExtra("selectedDepartment", selectedLinearLayout);
                 startActivity(intent);
@@ -40,7 +40,7 @@ public class ChooseDepartmentActivity extends AppCompatActivity {
         llEyebrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedLinearLayout = "Eyebrow styling";
+                selectedLinearLayout = "Pensat";
                 Intent intent = new Intent(ChooseDepartmentActivity.this, ChooseCountyActivity.class);
                 intent.putExtra("selectedDepartment", selectedLinearLayout);
                 startActivity(intent);
@@ -51,7 +51,7 @@ public class ChooseDepartmentActivity extends AppCompatActivity {
         llfacialTreatments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedLinearLayout = "Facial treatments";
+                selectedLinearLayout = "Tratamente faciale";
                 Intent intent = new Intent(ChooseDepartmentActivity.this, ChooseCountyActivity.class);
                 intent.putExtra("selectedDepartment", selectedLinearLayout);
                 startActivity(intent);
@@ -71,7 +71,7 @@ public class ChooseDepartmentActivity extends AppCompatActivity {
         llHairRemoval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedLinearLayout = "Hair removal";
+                selectedLinearLayout = "Epilare";
                 Intent intent = new Intent(ChooseDepartmentActivity.this, ChooseCountyActivity.class);
                 intent.putExtra("selectedDepartment", selectedLinearLayout);
                 startActivity(intent);
@@ -81,7 +81,7 @@ public class ChooseDepartmentActivity extends AppCompatActivity {
         llHairstyle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedLinearLayout = "Hairstyle";
+                selectedLinearLayout = "Coafat";
                 Intent intent = new Intent(ChooseDepartmentActivity.this, ChooseCountyActivity.class);
                 intent.putExtra("selectedDepartment", selectedLinearLayout);
                 startActivity(intent);

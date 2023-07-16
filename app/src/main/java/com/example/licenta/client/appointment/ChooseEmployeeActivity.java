@@ -46,9 +46,11 @@ public class ChooseEmployeeActivity extends AppCompatActivity implements Employe
 
         db = FirebaseFirestore.getInstance();
         String selectedDepartment = getIntent().getStringExtra("selectedDepartment");
+        String salonId = getIntent().getStringExtra("salonId");
 
         db.collection("employee")
                 .whereEqualTo("department", selectedDepartment)
+                .whereEqualTo("salonId", salonId)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     List<Employee> employeeList = new ArrayList<>();

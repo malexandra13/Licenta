@@ -36,11 +36,16 @@
     <string name="createAccount">Creează cont</string>
     <string name="add_salon">Adăugați un salon nou</string>
     <string name="salonName">Numele salonului</string>
+    <string name="salonName_">Numele salonului:</string>
     <string name="salonAddress">Adresa salonului</string>
     <string name="salonCity">Oraș</string>
+    <string name="salonCity_">Orașul:</string>
     <string name="salonStreet">Strada</string>
-    <string name="salonPostalCode">Cod poștal</string>
+    <string name="salonStreet_">Strada:</string>
+    <string name="salonPostalCode_">Codul poștal:</string>
+    <string name="salonPostalCode">Codul poștal</string>
     <string name="salonDescription">Descriere</string>
+    <string name="salonDescription_">Descrierea salonului:</string>
     <string name="startProgram">Ora de deschidere</string>
     <string name="endProgram">Ora de inchidere</string>
     <string name="upload_image">Încărcați o imagine</string>
@@ -113,10 +118,15 @@
     </string-array>
     <string name="make_up">Make Up</string>
     <string name="hairstyle">Hairstyle</string>
+    <string name="hairstyle_">Coafat</string>
     <string name="nails">Nails</string>
+    <string name="nails_">Manichiură și Pedichiură</string>
     <string name="eyebrow">Eyebrow styling</string>
+    <string name="eyebrow_">Pensat</string>
     <string name="hair_removal">Hair removal</string>
+    <string name="hair_removal_">Epilare</string>
     <string name="facialTreatments">Facial treatments</string>
+    <string name="facialTreatments_">Tratamente faciale</string>
     <string name="address">Adresă</string>
     <string name="description">Descriere</string>
     <string name="description_">Descriere:</string>
@@ -127,19 +137,18 @@
     <string name="choose_your_service">Alegeți serviciul</string>
     <string name="choose_your_department">Alegeți departamentul</string>
     <string name="no_appointments">Nu există programări pentru data selectată.</string>
-
     <string name="customers">Numărul de clienți în fiecare lună</string>
     <string name="serviceName">Numele serviciului</string>
     <string name="serviceName_">Numele serviciului:</string>
-    <string name="price">Pret</string>
-    <string name="price_">Pret:</string>
+    <string name="price">Preț</string>
+    <string name="price_">Preț:</string>
     <string name="view_employee">Vizualizați angajații dvs</string>
     <string name="department">Departament:</string>
     <string name="name">Nume:</string>
     <string name="no_employee">Nu sunt angajați adăugați</string>
     <string name="no_salon">Nu sunt adăugate saloane pentru acest județ</string>
-    <string name="employee_no">Numar angajat</string>
     <string name="employee">Angajat</string>
+    <string name="employee_">Angajatul:</string>
     <string name="chooseDate">Alegeți data și ora preferată</string>
     <string name="services">Servicii</string>
     <string name="service_added">Serviciile adăugate</string>
@@ -158,6 +167,7 @@
     <string name="confirm_password2">Confirmă parola</string>
     <string name="book_appointment">Rezervați o programare</string>
     <string name="salonCounty">Județ</string>
+    <string name="salonCounty_">Județul:</string>
     <string name="durationHours">Durata serviciului in ORE:</string>
     <string name="durationMinutes">Durata serviciului in MINUTE:</string>
     <string name="date">Data programării:</string>
@@ -173,11 +183,11 @@
     <string-array name="spinner_items_department">
         <item>Alege un departament</item>
         <item>Make Up</item>
-        <item>Hairstyle</item>
-        <item>Nails</item>
-        <item>Eyebrow styling</item>
-        <item>Hair removal</item>
-        <item>Facial treatments</item>
+        <item>Coafat</item>
+        <item>Manichiură și Pedichiură</item>
+        <item>Pensat</item>
+        <item>Epilare</item>
+        <item>Tratamente faciale</item>
     </string-array>
     <string-array name="spinner_items_nivel">
         <item>Alege nivel pregatire</item>

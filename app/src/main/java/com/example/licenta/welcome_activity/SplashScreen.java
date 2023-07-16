@@ -10,7 +10,7 @@ import com.example.licenta.R;
 
 public class SplashScreen extends AppCompatActivity {
 
-    public static int Splash_Screen_Time = 3000;
+    public static int Splash_Screen_Time = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, FirstScreen.class);
+                Intent intent = new Intent(SplashScreen.this, ChooseScreen.class);
                 startActivity(intent);
                 finish();
             }

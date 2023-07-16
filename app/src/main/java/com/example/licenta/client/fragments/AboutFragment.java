@@ -17,11 +17,9 @@ import com.example.licenta.R;
 
 public class AboutFragment extends Fragment {
 
-    private TextView appDescriptionTextView;
     private TextView versionTextView;
 
     public AboutFragment() {
-        // Required empty public constructor
     }
 
     @Override

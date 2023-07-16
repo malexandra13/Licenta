@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="@string/salonCounty"
+                    android:text="@string/salonCounty_"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="@string/salonCity"
+                    android:text="@string/salonCity_"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -116,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
-                    android:text="@string/salonStreet"
+                    android:text="@string/salonStreet_"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/salonPostalCode"
+                android:text="@string/salonPostalCode_"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -169,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/phoneNumber"
+                android:text="@string/phoneNumber_"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -201,7 +201,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:maxLines="3"
-                android:text="@string/email"
+                android:text="@string/email_"
                 android:textSize="16sp" />
 
 
@@ -210,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/salonDescription"
+                android:text="@string/salonDescription_"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />

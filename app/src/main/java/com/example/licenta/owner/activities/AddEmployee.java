@@ -1,5 +1,6 @@
 package com.example.licenta.owner.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.licenta.R;
+import com.example.licenta.owner.MainOwnerActivity;
 import com.example.licenta.owner.others.Employee;
 import com.example.licenta.owner.others.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -118,6 +120,8 @@ public class AddEmployee extends AppCompatActivity {
                                     firebaseFirestore.collection("employee").
                                             document(mAuth.getCurrentUser().getUid()).
                                             set(new Employee(employeeId, userType, ownerId, firstName, lastName, phoneNumber, email, salonId, department, nivel));
+                                    Intent intent = new Intent(AddEmployee.this, MainOwnerActivity.class);
+                                    startActivity(intent);
                                 } else {
                                     Toast.makeText(AddEmployee.this, "Contul există deja.",
                                             Toast.LENGTH_SHORT).show();

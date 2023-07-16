@@ -37,7 +37,6 @@ public class StatisticsActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         databaseReference = FirebaseDatabase.getInstance().getReference("appointments");
-
         fetchAppointmentsDataForSalon(getIntent().getStringExtra("salonId"));
     }
 
@@ -53,24 +52,18 @@ public class StatisticsActivity extends AppCompatActivity {
                         clientsPerMonth.put(month, clientsPerMonth.getOrDefault(month, 0) + 1);
                     }
                 }
-
-                // Display the bar chart
                 displayBarChart(clientsPerMonth);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Handle errors here
             }
         });
     }
 
-
     private String getMonthFromAppointmentDate(String date) {
-        Log.d("DEBUG", "getMonthFromAppointmentDate - Date: " + date);
         return date.substring(0, 7);
     }
-
 
     private void displayBarChart(Map<String, Integer> clientsPerMonth) {
         BarChart barChart = findViewById(R.id.barChart);
@@ -86,21 +79,16 @@ public class StatisticsActivity extends AppCompatActivity {
             labels.add(month);
         }
 
-        BarDataSet dataSet = new BarDataSet(entries, "Number of Clients");
+        BarDataSet dataSet = new BarDataSet(entries, "Numărul de clienți");
         dataSet.setColor(getResources().getColor(R.color.lavender_bright));
 
         BarData barData = new BarData(dataSet);
 
-        // Set custom X-axis labels
         XAxis xAxis = barChart.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
-
-// Rotate X-axis labels if necessary (optional)
         xAxis.setLabelRotationAngle(45);
-
-// Set the position of X-axis
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setGranularity(1f); // Add this line to force the interval to be 1 between labels
+        xAxis.setGranularity(1f);
 
         barChart.setData(barData);
         barChart.invalidate();

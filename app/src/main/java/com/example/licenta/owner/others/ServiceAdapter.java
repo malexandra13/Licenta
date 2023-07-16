@@ -64,14 +64,12 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
     class ServiceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView serviceNameTextView;
         private TextView serviceDepartmentTextView;
-        private TextView serviceDescriptionTextView;
         private TextView priceTextView;
 
         ServiceViewHolder(@NonNull View itemView) {
             super(itemView);
             serviceNameTextView = itemView.findViewById(R.id.tvServiceName);
             serviceDepartmentTextView = itemView.findViewById(R.id.tvServiceDepartment);
-            serviceDescriptionTextView = itemView.findViewById(R.id.tvServiceDescription);
             priceTextView = itemView.findViewById(R.id.tvPrice);
 
             itemView.setOnClickListener(this);
@@ -81,7 +79,6 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ServiceV
             serviceNameTextView.setText(service.getServiceName());
             priceTextView.setText(String.valueOf(service.getServicePrice()));
             serviceDepartmentTextView.setText(service.getServiceDepartment());
-            serviceDescriptionTextView.setText(service.getServiceDescription());
         }
 
         @Override

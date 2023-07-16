@@ -45,23 +45,10 @@ public class LoginOwner extends AppCompatActivity {
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     TextView textViewRegister;
-    CheckBox checkBoxRememberMe;
     LinearLayout googleButton;
     private GoogleSignInClient googleSignInClient;
     TextView forgotPassword;
 
-
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if (currentUser != null && mAuth.getCurrentUser().isEmailVerified() == true) {
-//            Intent intent = new Intent(getApplicationContext(), MainOwnerActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,10 +102,10 @@ public class LoginOwner extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(LoginOwner.this, "Check your email", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginOwner.this, "Verificați email-ul", Toast.LENGTH_SHORT).show();
                                     dialog.dismiss();
                                 } else {
-                                    Toast.makeText(LoginOwner.this, "Unable to send, failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginOwner.this, "Eșuat! Nu se poate trimite.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -146,13 +133,13 @@ public class LoginOwner extends AppCompatActivity {
                 String password = String.valueOf(editTextPassword.getText());
 
                 if (TextUtils.isEmpty(email)) {
-                    editTextEmail.setError("Email is required");
+                    editTextEmail.setError("Email este obligatoriu!");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
                     progressBar.setVisibility(View.GONE);
-                    editTextPassword.setError("Enter password");
+                    editTextPassword.setError("Parola este obligatorie!");
                     return;
                 }
 
@@ -165,7 +152,7 @@ public class LoginOwner extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     FirebaseUser currentUser = mAuth.getCurrentUser();
                                     String userId = currentUser.getUid();
-                                    // Retrieve the user type from Firebase Firestore
+
                                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                                     DocumentReference userRef = db.collection("owners").document(userId);
                                     userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -177,26 +164,26 @@ public class LoginOwner extends AppCompatActivity {
                                                     String userType = document.getString("userType");
                                                     if (userType != null && userType.equals("owner")) {
                                                         if (mAuth.getCurrentUser().isEmailVerified()) {
-                                                            Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_LONG).show();
+                                                            Toast.makeText(getApplicationContext(), "Conectat cu succes!", Toast.LENGTH_LONG).show();
                                                             Intent intent = new Intent(getApplicationContext(), MainOwnerActivity.class);
                                                             startActivity(intent);
                                                             finish();
                                                         } else {
-                                                            Toast.makeText(getApplicationContext(), "Please verify your email address", Toast.LENGTH_LONG).show();
+                                                            Toast.makeText(getApplicationContext(), "Vă rog să vă verificați adresa de email.", Toast.LENGTH_LONG).show();
                                                         }
                                                     } else {
-                                                        Toast.makeText(getApplicationContext(), "You are not an owner", Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(getApplicationContext(), "Nu ai cont de proprietar salon.", Toast.LENGTH_LONG).show();
                                                     }
                                                 } else {
-                                                    Toast.makeText(getApplicationContext(), "You are not an owner", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(getApplicationContext(), "Nu ai cont de proprietar salon.", Toast.LENGTH_LONG).show();
                                                 }
                                             } else {
-                                                Toast.makeText(getApplicationContext(), "Failed to retrieve user information", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), "Nu s-au putut prelua informațiile despre utilizator.", Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     });
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Autentificare eșuată.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -206,7 +193,7 @@ public class LoginOwner extends AppCompatActivity {
 
     private void createRequest() {
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id)) //get the default web client id
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -216,7 +203,7 @@ public class LoginOwner extends AppCompatActivity {
 
     private void signIn() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN); //RC_SIGN_IN is a request code
+        startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
     @Override
@@ -250,7 +237,7 @@ public class LoginOwner extends AppCompatActivity {
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(LoginOwner.this, "Sorry auth failed.",
+                            Toast.makeText(LoginOwner.this, "Ne pare rău, autentificarea a eșuat.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }

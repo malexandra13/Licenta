@@ -3,6 +3,7 @@ package com.example.licenta.owner.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -13,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.licenta.R;
+import com.example.licenta.owner.MainOwnerActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -61,13 +63,11 @@ public class AddServiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 progressDialog.show();
 
-                String serviceId = servicesReference.push().getKey();
                 String serviceName = textServiceName.getText().toString();
                 String servicePrice = textServicePrice.getText().toString();
                 String serviceDepartment = spinnerDepartment.getSelectedItem().toString();
                 String serviceDescription = textServiceDescription.getText().toString();
 
-                // Validate the input fields
                 if (TextUtils.isEmpty(serviceName)) {
                     textServiceName.setError("Numele serviciului este obligatoriu");
                     progressDialog.dismiss();
@@ -95,6 +95,8 @@ public class AddServiceActivity extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(AddServiceActivity.this, "Serviciu adăugat cu succes!", Toast.LENGTH_LONG).show();
                                 progressDialog.dismiss();
+                                Intent intent = new Intent(AddServiceActivity.this, MainOwnerActivity.class);
+                                startActivity(intent);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

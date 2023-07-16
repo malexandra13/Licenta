@@ -50,17 +50,6 @@ public class LoginClient extends AppCompatActivity {
     TextView forgotPassword;
 
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if (currentUser != null && mAuth.getCurrentUser().isEmailVerified() == true) {
-//            Intent intent = new Intent(getApplicationContext(), MainClientActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,17 +95,17 @@ public class LoginClient extends AppCompatActivity {
                     public void onClick(View view) {
                         String userEmail = emailBox.getText().toString();
                         if (TextUtils.isEmpty(userEmail) && !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
-                            Toast.makeText(LoginClient.this, "Enter your registered email id", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginClient.this, "Introduceți e-mail înregistrat", Toast.LENGTH_SHORT).show();
                             return;
                         }
                         mAuth.sendPasswordResetEmail(userEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(LoginClient.this, "Check your email", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginClient.this, "Verificați emailul", Toast.LENGTH_SHORT).show();
                                     dialog.dismiss();
                                 } else {
-                                    Toast.makeText(LoginClient.this, "Unable to send, failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginClient.this, "Eșuat! Nu se poate trimite.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -143,13 +132,13 @@ public class LoginClient extends AppCompatActivity {
                 String password = String.valueOf(editTextPassword.getText());
 
                 if (TextUtils.isEmpty(email)) {
-                    editTextEmail.setError("Email is required");
+                    editTextEmail.setError("Email este obligatoriu!");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
                     progressBar.setVisibility(View.GONE);
-                    editTextPassword.setError("Enter password");
+                    editTextPassword.setError("Parola este obligatorie!");
                     return;
                 }
 
@@ -163,7 +152,6 @@ public class LoginClient extends AppCompatActivity {
                                     FirebaseUser currentUser = mAuth.getCurrentUser();
                                     String userId = currentUser.getUid();
 
-                                    // Retrieve the user type from Firebase Firestore
                                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                                     DocumentReference userRef = db.collection("clients").document(userId);
                                     userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -175,26 +163,26 @@ public class LoginClient extends AppCompatActivity {
                                                     String userType = document.getString("userType");
                                                     if (userType != null && userType.equals("client")) {
                                                         if (mAuth.getCurrentUser().isEmailVerified()) {
-                                                            Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_LONG).show();
+                                                            Toast.makeText(getApplicationContext(), "Conectat cu succes!", Toast.LENGTH_LONG).show();
                                                             Intent intent = new Intent(getApplicationContext(), MainClientActivity.class);
                                                             startActivity(intent);
                                                             finish();
                                                         } else {
-                                                            Toast.makeText(getApplicationContext(), "Please verify your email address", Toast.LENGTH_LONG).show();
+                                                            Toast.makeText(getApplicationContext(), "Vă rog să vă verificați adresa de email.", Toast.LENGTH_LONG).show();
                                                         }
                                                     } else {
-                                                        Toast.makeText(getApplicationContext(), "You are not a client", Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(getApplicationContext(), "Nu aveți cont de client", Toast.LENGTH_LONG).show();
                                                     }
                                                 } else {
-                                                    Toast.makeText(getApplicationContext(), "You are not a client", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(getApplicationContext(), "Nu aveți cont de client", Toast.LENGTH_LONG).show();
                                                 }
                                             } else {
-                                                Toast.makeText(getApplicationContext(), "Failed to retrieve user information", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getApplicationContext(), "Nu s-au putut prelua informațiile despre utilizator", Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     });
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Autentificare eșuată.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -205,7 +193,7 @@ public class LoginClient extends AppCompatActivity {
 
     private void createRequest() {
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id)) //get the default web client id
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -216,7 +204,7 @@ public class LoginClient extends AppCompatActivity {
 
     private void signIn() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN); //RC_SIGN_IN is a request code
+        startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
     @Override
@@ -250,7 +238,7 @@ public class LoginClient extends AppCompatActivity {
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(LoginClient.this, "Sorry auth failed.",
+                            Toast.makeText(LoginClient.this, "Ne pare rău autentificarea a eșuat.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }

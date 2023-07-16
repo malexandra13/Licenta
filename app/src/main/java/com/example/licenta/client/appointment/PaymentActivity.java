@@ -70,11 +70,11 @@ public class PaymentActivity extends AppCompatActivity {
 
         paymentSheet = new PaymentSheet(this, result -> {
             if (result instanceof PaymentSheetResult.Canceled) {
-                Toast.makeText(this, "Payment Canceled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Plată anulată", Toast.LENGTH_SHORT).show();
             } else if (result instanceof PaymentSheetResult.Failed) {
-                Toast.makeText(this, "Payment Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Plată eșuată", Toast.LENGTH_SHORT).show();
             } else if (result instanceof PaymentSheetResult.Completed) {
-                Toast.makeText(this, "Payment Completed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Plată finalizată", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(PaymentActivity.this, SuccessfulPaymentActivity.class);
                 startActivity(intent);
             }

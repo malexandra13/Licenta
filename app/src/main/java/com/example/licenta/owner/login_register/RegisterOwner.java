@@ -67,32 +67,32 @@ public class RegisterOwner extends AppCompatActivity {
                 String phoneNumber = String.valueOf(editTextPhoneNumber.getText());
 
                 if (TextUtils.isEmpty(firstName)) {
-                    editTextFirstName.setError("First name is required");
+                    editTextFirstName.setError("Prenumele este obligatoriu!");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (TextUtils.isEmpty(lastName)) {
-                    editTextLastName.setError("Last name is required");
+                    editTextLastName.setError("Numele este obligatoriu!");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (TextUtils.isEmpty(phoneNumber)) {
-                    editTextPhoneNumber.setError("Phone number is required");
+                    editTextPhoneNumber.setError("Numarul de telefon este obligatoriu!");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (TextUtils.isEmpty(email)) {
-                    editTextEmail.setError("Email is required");
+                    editTextEmail.setError("Email este obligatoriu!");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
-                    editTextPassword.setError("Enter password");
+                    editTextPassword.setError("Parola este obligatorie!");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (password.length() < 6) {
-                    editTextPassword.setError("Password must be at least 6 characters");
+                    editTextPassword.setError("Parola trebuie sa aiba minim 6 caractere!");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
@@ -108,20 +108,20 @@ public class RegisterOwner extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(RegisterOwner.this, "Account created. Please check your email for verification.",
+                                                Toast.makeText(RegisterOwner.this, "Cont creat. Vă rugăm să vă verificați e-mailul pentru verificare.",
                                                         Toast.LENGTH_SHORT).show();
                                                 firebaseFirestore.collection("owners").
                                                         document(mAuth.getCurrentUser().getUid()).
                                                         set(new User(userType, firstName, lastName, phoneNumber, email));
                                             } else {
-                                                Toast.makeText(RegisterOwner.this, "Account already exist.",
+                                                Toast.makeText(RegisterOwner.this, "Contul există deja.",
                                                         Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
 //
                                 } else {
-                                    Toast.makeText(RegisterOwner.this, "Account already exist.",
+                                    Toast.makeText(RegisterOwner.this, "Contul există deja.",
                                             Toast.LENGTH_SHORT).show();
 
                                 }

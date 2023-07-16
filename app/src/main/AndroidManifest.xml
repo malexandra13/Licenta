@@ -60,33 +60,10 @@
             android:exported="false" />
         <activity
             android:name=".client.appointment.PaymentActivity"
-            android:exported="false">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity
-            android:name=".welcome_activity.ThirdScreen"
-            android:exported="false" />
-        <activity
-            android:name=".welcome_activity.SecondScreen"
-            android:exported="false" />
-        <activity
-            android:name=".welcome_activity.FirstScreen"
             android:exported="false" />
         <activity
             android:name=".welcome_activity.ChooseScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".owner.activities.SalonDetails"
             android:exported="false" />
@@ -101,21 +78,19 @@
             android:exported="false" />
         <activity
             android:name=".welcome_activity.SplashScreen"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity> <!-- employee -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".employee.MainEmployeeActivity"
             android:exported="false" />
         <activity
             android:name=".employee.login.LoginEmployee"
-            android:exported="false" /> <!-- owner -->
+            android:exported="false" />
         <activity
             android:name=".owner.MainOwnerActivity"
             android:exported="false" />
@@ -124,7 +99,7 @@
             android:exported="false" />
         <activity
             android:name=".owner.login_register.RegisterOwner"
-            android:exported="false" /> <!-- client -->
+            android:exported="false" />
         <activity
             android:name=".client.login_register.RegisterClient"
             android:exported="false" />
