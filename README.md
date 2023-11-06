@@ -11,17 +11,17 @@ View information about the respective salon;
 Payment option for services, using the Stripe and Volley combination;
 
 For Owners:
--Log in using their Google account or create a new account.;
--Add one or more beauty salons.;
--Create accounts for employees;
--Add and manage the services offered by the salon;
--View the list of available salons;
--Generate statistics to evaluate the salon's performance;
+Log in using their Google account or create a new account;
+Add one or more beauty salons;
+Create accounts for employees;
+Add and manage the services offered by the salon;
+View the list of available salons;
+Generate statistics to evaluate the salon's performance;
 
 For Employees:
--Log in using the account created by the owner;
--View their personal work schedule;
--View appointments assigned to them by clients;
+Log in using the account created by the owner;
+View their personal work schedule;
+View appointments assigned to them by clients;
 
 
 ## Screenshots
