@@ -58,7 +58,5 @@ Statistics for owner salon:
 https://paste.pics/0b60327c4bb0fe3f1d3ebb7f871fdf91
 
 ## Tech
--Android Studio
--Java
--Firebase
+Android Studio; Java; Firebase
 
