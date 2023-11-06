@@ -1,28 +1,27 @@
-# booking-app-android
 # Beauty Salon App
 The Beauty Salon App is an Android application developed using Android Studio and the Java programming language. This application aims to facilitate the online appointment management for a beauty salon. Users can have one of three roles: client, employee, or owner. The application offers multiple functionalities specific to each role.
 
 For Clients:
--Log in using their Google account or create a new account.
--Schedule an available service at the salon.
--View past appointments.
--View upcoming appointments.
--Modify or cancel an existing appointment.
--View information about the respective salon.
--Payment option for services, using the Stripe and Volley combination.
+Log in using their Google account or create a new account;
+Schedule an available service at the salon;
+View past appointments;
+View upcoming appointments.
+Modify or cancel an existing appointment;
+View information about the respective salon;
+Payment option for services, using the Stripe and Volley combination;
 
 For Owners:
--Log in using their Google account or create a new account.
--Add one or more beauty salons.
--Create accounts for employees.
--Add and manage the services offered by the salon.
--View the list of available salons.
--Generate statistics to evaluate the salon's performance.
+-Log in using their Google account or create a new account.;
+-Add one or more beauty salons.;
+-Create accounts for employees;
+-Add and manage the services offered by the salon;
+-View the list of available salons;
+-Generate statistics to evaluate the salon's performance;
 
 For Employees:
--Log in using the account created by the owner.
--View their personal work schedule.
--View appointments assigned to them by clients.
+-Log in using the account created by the owner;
+-View their personal work schedule;
+-View appointments assigned to them by clients;
 
 
 ## Screenshots
